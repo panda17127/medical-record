@@ -1,0 +1,12 @@
+<!--components/tabbar/index.wxml-->
+<view class="tabbar flex flex-js flex-ac">
+   <view class="refresh-box">
+      <image src="/assets/img/refresh.png"></image>
+   </view>
+   <!--<view class="logo-box">-->
+      <!--<image src="/assets/img/logo.png"></image>-->
+   <!--</view>-->
+   <view class="me-box">
+      <image src="/assets/img/me.png"></image>
+   </view>
+</view>

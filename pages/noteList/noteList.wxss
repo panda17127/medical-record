@@ -1,0 +1,37 @@
+/* pages/noteList/noteList.wxss */
+.note-item {
+   padding: 0 46rpx;
+   height: 120rpx;
+   border-bottom: 1rpx dashed #93928e;
+}
+.note-item-02 {
+   position: absolute;
+   top: 140rpx;
+   left: 100%;
+   z-index: 10;
+   animation-timing-function: linear;
+   animation-fill-mode: none;
+   transform: translateZ(0);
+   white-space: nowrap;
+}
+.note-item-02 .note-icon {
+   width: 120rpx;
+   height: 120rpx;
+   z-index: 1;
+}
+.note-item-02 .note-bg {
+   width: 471rpx;
+   height: 67rpx;
+   margin-left: -76rpx;
+}
+.note-item-02 .note-text {
+   position: absolute;
+   top: 10rpx;
+   color: #666;
+   font-size: 30rpx;
+}
+
+@keyframes dmAnimation{
+   from{ left: 100%; }
+   to{ left: -100%; }
+}

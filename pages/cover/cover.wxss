@@ -1,0 +1,8 @@
+/**index.wxss**/
+page, .container, .guide-page {
+   width: 100%;
+   height: 100%;
+}
+.guide-page image {
+  vertical-align: middle;
+}

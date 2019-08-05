@@ -1,0 +1,45 @@
+<!--pages/noteList/noteList.wxml-->
+<view class="container">
+   <view class="bg-box">
+      <image src="/assets/img/bg.png"></image>
+   </view>
+   <header />
+   <tabbar />
+   <view class="note-list">
+      <!--<block wx:for="{{noteList}}" wx:key="index">-->
+         <!--<view class="note-item flex flex-ac">{{item}}</view>-->
+      <!--</block>-->
+      <!--<block wx:for="{{noteList}}" wx:key="index">-->
+         <!--<view class="note-item-02" animation="{{item.animationData}}" style="transform:translateX({{screenWidth}}px);">-->
+            <!--<view class="flex flex-ac pos-r">-->
+               <!--<view class="note-icon">-->
+                  <!--<image src="/assets/img/note/note_icon32.png"></image>-->
+               <!--</view>-->
+               <!--<view class="note-text-box pos-r">-->
+                  <!--&lt;!&ndash;<view class="note-text">我说你的是的是一说，山东分局四分司法解释就放肆，的...</view>&ndash;&gt;-->
+                  <!--<view class="note-text"></view>-->
+                  <!--<view class="note-bg">-->
+                     <!--<image src="/assets/img/note/note_bg01.png"></image>-->
+                  <!--</view>-->
+               <!--</view>-->
+            <!--</view>-->
+         <!--</view>-->
+      <!--</block>-->
+      <block wx:for="{{ dmData }}" wx:key="{{ item.id }}">
+         <view class="note-item-02" style="top:{{ item.top }}%; animation: dmAnimation {{item.time}}s linear {{ index*3 }}s infinite;">
+            <view class="flex flex-ac pos-r">
+               <view class="note-icon">
+                  <image src="/assets/img/note/note_icon32.png"></image>
+               </view>
+               <view class="note-text-box pos-r">
+                  <!--<view class="note-text">我说你的是的是一说，山东分局四分司法解释就放肆，的...</view>-->
+                  <view class="note-text">{{item.name}}</view>
+                  <view class="note-bg">
+                     <image src="/assets/img/note/note_bg01.png"></image>
+                  </view>
+               </view>
+            </view>
+         </view>
+      </block>
+   </view>
+</view>

@@ -1,0 +1,25 @@
+/* components/tabbar/index.wxss */
+@import "/app.wxss";
+
+.tabbar {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   
+   width: 670rpx;
+   height: 120rpx;
+   padding: 0 40rpx;
+   background-color: transparent;
+}
+.tabbar .refresh-box {
+   width: 82rpx;
+   height: 93rpx;
+}
+.tabbar .logo-box {
+   width: 157rpx;
+   height: 75rpx;
+}
+.tabbar .me-box {
+   width: 120rpx;
+   height: 71rpx;
+}

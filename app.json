@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/cover/cover",
+    "pages/home/home",
+    "pages/noteList/noteList"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "医学记",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

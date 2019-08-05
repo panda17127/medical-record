@@ -1,0 +1,30 @@
+/* components/header/index.wxss */
+@import "/app.wxss";
+
+.header {
+   width: 100%;
+   height: 135rpx;
+   background-color: #f5ae66;
+   padding-left: 40rpx;
+   padding-top: 20rpx;
+}
+.header .input-group .input-control {
+   width: 310rpx;
+   height: 55rpx;
+   border-radius: 8rpx;
+   background-color: #fdeece;
+   padding-left: 100rpx;
+}
+.header .input-group .search-box {
+   position: absolute;
+   left: 14rpx;
+   top: 5rpx;
+   
+   width: 50rpx;
+   height: 50rpx;
+}
+.header .select-box {
+   width: 53rpx;
+   height: 53rpx;
+   margin-left: 18rpx;
+}

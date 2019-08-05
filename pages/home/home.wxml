@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+   <view class="bg-box">
+      <image src="/assets/img/bg.png"></image>
+   </view>
+   <header id="header" />
+   <view class="notebook-list">
+      <block wx:for="{{notebookList}}" wx:key="index">
+         <view class="notebook-item flex flex-ac flex-jc">
+            <view class="notebook-item-block"></view>
+            <view class="notebook-item-text fs32">{{item}}</view>
+            <view class="notebook-item-block"></view>
+         </view>
+      </block>
+   </view>
+   <tabbar id="tabbar" />
+</view>
