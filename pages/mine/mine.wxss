@@ -1,0 +1,24 @@
+/* pages/mine/mine.wxss */
+.mine-top {
+   background-color: #f5ae66;
+   padding: 85rpx 0;
+}
+.mine-info {
+   margin-right: 75rpx;
+}
+.avatar {
+   width: 100rpx;
+   height: 100rpx;
+   background-color: #fff;
+   border-radius: 50%;
+   margin-bottom: 50rpx;
+}
+.mine-word-item view:first-child {
+   margin-right: 140rpx;
+}
+.mine-word-item view:nth-child(2) {
+   margin-right: 60rpx;
+}
+.mine-word-item-mb {
+   margin-bottom: 45rpx;
+}

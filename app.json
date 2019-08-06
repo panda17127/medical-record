@@ -2,7 +2,8 @@
   "pages": [
     "pages/cover/cover",
     "pages/home/home",
-    "pages/noteList/noteList"
+    "pages/noteList/noteList",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",

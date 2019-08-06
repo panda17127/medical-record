@@ -7,6 +7,12 @@ App({
    getSystemInfo () {
       try {
          const res = wx.getSystemInfoSync();
+         if (res.model.indexOf('iPhone X') !== -1) {
+            res.isIpx = true;
+         } else {
+            res.isIpx = false;
+         }
+         // 是否为iphonx
          this.globalData.systemInfo = res;
       } catch (e) {
          // Do something when catch error

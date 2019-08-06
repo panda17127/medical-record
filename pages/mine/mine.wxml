@@ -1,0 +1,28 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+   <view class="mine">
+      <view class="mine-top flex flex-ac flex-jc co333">
+         <view class="mine-info flex flex-col flex-ac flex-jc">
+            <view class="avatar"></view>
+            <view class="name fs32">xixo</view>
+         </view>
+         <view class="mine-word flex flex-col flex-ac flex-jc">
+            <view class="mine-word-item mine-word-item-mb flex flex-ac">
+               <view class="fs28">临床</view>
+               <view class="fs24">字</view>
+               <view class="fs24">篇</view>
+            </view>
+            <view class="mine-word-item mine-word-item-mb flex flex-ac">
+               <view class="fs28">科研</view>
+               <view class="fs24">字</view>
+               <view class="fs24">篇</view>
+            </view>
+            <view class="mine-word-item flex flex-ac">
+               <view class="fs28">生活</view>
+               <view class="fs24">字</view>
+               <view class="fs24">篇</view>
+            </view>
+         </view>
+      </view>
+   </view>
+</view>

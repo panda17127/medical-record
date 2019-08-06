@@ -97,7 +97,24 @@ const throttle = (fn, delay, duration) => {
    }
 }
 
+/***
+ *
+ * @param name
+ * @returns {Promise<any>}
+ */
+const getWxml = (name) => {
+   return new Promise((resolve, reject) => {
+      const query = wx.createSelectorQuery()
+      query.select(name).boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(function(res){
+         resolve(res);
+      })
+   })
+}
+
 module.exports = {
    formatTime,
-   throttle
+   throttle,
+   getWxml
 }

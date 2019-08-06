@@ -8,6 +8,9 @@
    padding-left: 40rpx;
    padding-top: 20rpx;
 }
+.header-ipx {
+   padding-top: 64rpx;
+}
 .header .input-group .input-control {
    width: 310rpx;
    height: 55rpx;

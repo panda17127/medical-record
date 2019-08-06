@@ -1,7 +1,8 @@
 // pages/noteList/noteList.js
+let util = require("../../utils/util");
+let getWxml = util.getWxml;
 
 let { globalData } = getApp();
-
 Page({
    
    /**
@@ -11,7 +12,9 @@ Page({
       dmData: [],
       symbolLeft: '{{',
       symbolRight: '}}',
-      screenWidth: globalData.systemInfo.screenWidth, // 屏幕宽度
+      isIpx: globalData.systemInfo.isIpx,
+      sWidth: globalData.systemInfo.screenWidth, // 屏幕宽度
+      sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
       noteList: [{name: 1},{name: 2},{name: 3},{name: 4},{name: 5},{name: 6},{name: 7},{name: 8},{name: 9},{name: 10}],  // 笔记列表
    },
    
@@ -33,26 +36,39 @@ Page({
     * 生命周期函数--监听页面显示
     */
    onShow: function () {
-      // this.handleAnimation();
-      this.setDM();
+      this.handleAnimation();
+      // this.setDM();
    },
    
    // 动画显示
    handleAnimation() {
       let noteList = this.data.noteList;
-      noteList.forEach((item, index) => {
-         let animation = wx.createAnimation({
-            duration: Math.round(Math.random()* 4000 + 4000),
-            timingFunction: 'linear',
-         })
-         this.animation = animation
-
-         animation.translateX(-375).step()
-
-         let animationName = "animationData" + index;
-         item.animationData = animation.export();
-         this.setData({
-            noteList
+      let hHeight = 0;
+      this.selectComponent("#header").getHeaderWxml().then(res => {
+         hHeight = res.height;
+      })
+      this.selectComponent("#tabBar").getTabbarWxml().then(res => {
+         let sHeight = this.data.sHeight;
+         let sWidth = this.data.sWidth;
+         let tHeight = res.height;
+         let viewHeight = sHeight - tHeight - 120;
+   
+         noteList.forEach((item, index) => {
+            item.top = Math.floor(Math.random() * (viewHeight - hHeight)+ hHeight) ;
+            item.tx = 0 - Math.floor(Math.random() * 10) + sWidth;
+            let animation = wx.createAnimation({
+               duration: Math.round(Math.random()* 4000 + 4000),
+               timingFunction: 'linear',
+            })
+            this.animation = animation;
+      
+            animation.translateX(-375).step();
+      
+            let animationName = "animationData" + index;
+            item.animationData = animation.export();
+            this.setData({
+               noteList
+            })
          })
       })
       console.log(this.data);
@@ -61,25 +77,32 @@ Page({
    // 处理弹幕位置
    setDM: function () {
       // 处理弹幕参数
-      const dmArr = [];
       const _b = this.data.noteList;
-      for (let i = 0; i < _b.length; i++) {
-         const time = Math.floor(Math.random() * 10);
-         const _time = time < 6 ? 6 + i : time + i;
-         const top = Math.floor(Math.random() * 80) + 2;
-         const _p = {
-            id: _b[i].id,
-            sex: _b[i].sex,
-            content: _b[i].content,
-            zanNumber: _b[i].zanNumber,
-            top,
-            time: _time,
-         };
-         dmArr.push(_p);
-      }
-      this.setData({
-         dmData: dmArr
-      });
+      let hHeight = 0;
+      this.selectComponent("#header").getHeaderWxml().then(res => {
+         hHeight = res.height;
+      })
+      this.selectComponent("#tabBar").getTabbarWxml().then(res => {
+         let sHeight = this.data.sHeight;
+         let tHeight = res.height;
+         let viewHeight = sHeight - tHeight - 120;
+         
+         // let dmData = this.data.dmData;
+         // _b.forEach((item, index) => {
+         //    const time = Math.floor(Math.random() * 10);
+         //    const _time = time < 6 ? 6 + index : time + index;
+         //    const top = Math.floor(Math.random() * (viewHeight - hHeight)+ hHeight) ;
+         //    const _p = {
+         //       top,
+         //       time: _time,
+         //       name: item.name
+         //    };
+         //    dmData.push(_p);
+         //    this.setData({
+         //       dmData
+         //    });
+         // })
+      })
    },
    
    /**
