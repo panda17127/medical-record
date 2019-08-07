@@ -1,0 +1,13 @@
+<!--pages/noteList/filter/filter.wxml-->
+<view class="container">
+   <view class="filter">
+      <view class="filter-type">
+         <view class="filter-type-item">
+            <view class="filter-type-bg">
+               <image src="/assets/note/cate.bg.png"></image>
+            </view>
+            <view class="filter-type-text">临床</view>
+         </view>
+      </view>
+   </view>
+</view>
