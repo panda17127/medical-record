@@ -1,0 +1,16 @@
+/* pages/mine/about/about.wxss */
+.about {
+   margin-top: 86rpx;
+   margin-left: 86rpx;
+}
+.about-item {
+   margin-bottom: 44rpx;
+}
+.about-item-circle {
+   width: 25rpx;
+   height: 25rpx;
+   border-radius: 50%;
+   border: 1rpx solid #555;
+   margin-right: 12rpx;
+}
+

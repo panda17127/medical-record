@@ -3,7 +3,9 @@
     "pages/cover/cover",
     "pages/home/home",
     "pages/noteList/noteList",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/mine/about/about",
+    "pages/mine/notice/notice"
   ],
   "window": {
     "backgroundTextStyle": "light",

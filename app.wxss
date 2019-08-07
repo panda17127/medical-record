@@ -23,6 +23,10 @@
    font-size: 28rpx;
    line-height: 1;
 }
+.fs30 {
+   font-size: 28rpx;
+   line-height: 1;
+}
 .fs32 {
    font-size: 32rpx;
    line-height: 1;

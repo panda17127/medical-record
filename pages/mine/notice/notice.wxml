@@ -1,0 +1,8 @@
+<!--pages/mine/notice/notice.wxml-->
+<view class="container">
+   <view class="notice">
+      <view class="notice-content fs32">
+         欢迎来到医学记: )
+      </view>
+   </view>
+</view>

@@ -1,0 +1,13 @@
+<!--pages/mine/about/about.wxml-->
+<view class="conatainer">
+   <view class="about">
+      <view class="about-item flex flex-ac">
+         <view class="about-item-circle"></view>
+         <view class="about-item-text fs30">公众号：医学记</view>
+      </view>
+      <view class="about-item flex flex-ac">
+         <view class="about-item-circle"></view>
+         <view class="about-item-text fs30">联系我们：微博@医学记</view>
+      </view>
+   </view>
+</view>

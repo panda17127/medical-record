@@ -24,5 +24,23 @@
             </view>
          </view>
       </view>
+      <view class="mine-list">
+         <view class="mine-item flex flex-ac" bindtap="intoNotice">
+            <view class="mine-item-circle"></view>
+            <view class="mine-item-text fs32">公告牌</view>
+         </view>
+         <view class="mine-item flex flex-ac">
+            <view class="mine-item-circle"></view>
+            <view class="mine-item-text fs32">背景</view>
+         </view>
+         <view class="mine-item flex flex-ac">
+            <view class="mine-item-circle"></view>
+            <view class="mine-item-text fs32">系统</view>
+         </view>
+         <view class="mine-item flex flex-ac" bindtap="intoAbout">
+            <view class="mine-item-circle"></view>
+            <view class="mine-item-text fs32">关于医学记</view>
+         </view>
+      </view>
    </view>
 </view>

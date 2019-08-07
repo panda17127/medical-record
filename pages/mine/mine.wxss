@@ -22,3 +22,16 @@
 .mine-word-item-mb {
    margin-bottom: 45rpx;
 }
+.mine-list {
+   padding: 80rpx 86rpx;
+}
+.mine-list .mine-item {
+   padding: 24rpx;
+}
+.mine-list .mine-item .mine-item-circle {
+   width: 25rpx;
+   height: 25rpx;
+   border-radius: 50%;
+   border: 1rpx solid #555;
+   margin-right: 12rpx;
+}
