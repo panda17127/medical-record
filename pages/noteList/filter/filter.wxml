@@ -1,12 +1,53 @@
 <!--pages/noteList/filter/filter.wxml-->
 <view class="container">
    <view class="filter">
-      <view class="filter-type">
-         <view class="filter-type-item">
-            <view class="filter-type-bg">
-               <image src="/assets/note/cate.bg.png"></image>
+      <view class="filter-type-wrap">
+         <view class="filter-name fs32">类型</view>
+         <view class="filter-type flex flex-ac flex-js">
+            <view class="filter-type-item pos-r">
+               <view class="filter-type-bg">
+                  <image src="/assets/img/cate_bg.png"></image>
+               </view>
+               <view class="filter-type-text fs32">临床</view>
             </view>
-            <view class="filter-type-text">临床</view>
+            <view class="filter-type-item pos-r">
+               <view class="filter-type-bg">
+                  <image src="/assets/img/cate_bg.png"></image>
+               </view>
+               <view class="filter-type-text fs32">科研</view>
+            </view>
+            <view class="filter-type-item pos-r">
+               <view class="filter-type-bg">
+                  <image src="/assets/img/cate_bg.png"></image>
+               </view>
+               <view class="filter-type-text fs32">生活</view>
+            </view>
+         </view>
+      </view>
+      <view class="filter-other-box flex flex-ac flex-js">
+         <view>
+            <view class="fs32 filter-name">科室</view>
+            <view class="filter-type-item pos-r">
+               <view class="filter-type-bg">
+                  <image src="/assets/img/cate_bg.png"></image>
+               </view>
+            </view>
+         </view>
+         <view>
+            <view class="fs32 filter-name">学科</view>
+            <view class="filter-type-item pos-r">
+               <view class="filter-type-bg">
+                  <image src="/assets/img/cate_bg.png"></image>
+               </view>
+            </view>
+         </view>
+         <view>
+            <view class="fs32 filter-name">时间</view>
+            <view class="filter-type-item pos-r">
+               <view class="filter-type-bg">
+                  <image src="/assets/img/cate_bg.png"></image>
+               </view>
+            </view>
          </view>
       </view>
    </view>

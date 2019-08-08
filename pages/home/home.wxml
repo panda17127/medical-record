@@ -6,7 +6,7 @@
    <header id="header" />
    <view class="notebook-list">
       <block wx:for="{{notebookList}}" wx:key="index">
-         <view class="notebook-item flex flex-ac flex-jc">
+         <view class="notebook-item flex flex-ac flex-jc" bindtap="intoNoteList">
             <view class="notebook-item-block"></view>
             <view class="notebook-item-text fs32">{{item}}</view>
             <view class="notebook-item-block"></view>

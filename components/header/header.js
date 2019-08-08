@@ -1,4 +1,5 @@
 // components/header/index.js
+let { globalData } = getApp();
 Component({
    /**
     * 组件的属性列表
@@ -14,7 +15,7 @@ Component({
     * 组件的初始数据
     */
    data: {
-   
+      statusBarHeight: globalData.systemInfo.statusBarHeight
    },
    
    /**
@@ -28,6 +29,14 @@ Component({
                resolve(res);
             }).exec()
          })
+      },
+      intoFilter() {
+         wx.navigateTo({
+           url: '/pages/noteList/filter/filter'
+         })
+      },
+      back() {
+         wx.navigateBack();
       }
    }
 })

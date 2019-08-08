@@ -21,6 +21,11 @@ Component({
                resolve(res);
             }).exec()
          })
+      },
+      intoMine() {
+         wx.navigateTo({
+           url: '/pages/mine/mine'
+         })
       }
    }
 })

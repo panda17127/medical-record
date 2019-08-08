@@ -1,1 +1,25 @@
 /* pages/noteList/filter/filter.wxss */
+.filter {
+   padding: 0 80rpx;
+   margin-top: 76rpx;
+}
+.filter-type-wrap {
+   margin-bottom: 66rpx;
+}
+.filter-name {
+   margin-bottom: 32rpx;
+}
+.filter-type-bg {
+   width: 159rpx;
+   height: 76rpx;
+}
+.filter-type-text {
+   position: absolute;
+   left: 0;
+   top: 0;
+
+   width: 100%;
+   height: 76rpx;
+   text-align: center;
+   line-height: 76rpx;
+}

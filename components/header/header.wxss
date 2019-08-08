@@ -3,16 +3,20 @@
 
 .header {
    width: 100%;
-   height: 135rpx;
+   height: 88rpx;
    background-color: #f5ae66;
    padding-left: 40rpx;
-   padding-top: 20rpx;
+   padding-bottom: 20rpx;
 }
-.header-ipx {
-   padding-top: 64rpx;
+.header .back {
+   width: 63rpx;
+   height: 44rpx;
+}
+.header .input-group {
+   margin-left: 65rpx;
 }
 .header .input-group .input-control {
-   width: 310rpx;
+   width: 195rpx;
    height: 55rpx;
    border-radius: 8rpx;
    background-color: #fdeece;

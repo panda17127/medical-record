@@ -7,6 +7,7 @@ App({
    getSystemInfo () {
       try {
          const res = wx.getSystemInfoSync();
+         console.log(res);
          if (res.model.indexOf('iPhone X') !== -1) {
             res.isIpx = true;
          } else {

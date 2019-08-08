@@ -1,12 +1,15 @@
 <!--components/header/index.wxml-->
-<view class="header flex flex-ac {{isIpx ? 'header-ipx' : ''}}">
+<view class="header flex flex-ac" style="padding-top:{{statusBarHeight}}px;">
+   <view class="back" bindtap="back">
+      <image src="/assets/img/back.png"></image>
+   </view>
    <view class="input-group pos-r">
       <input class="input-control fs24"/>
       <view class="search-box">
          <image src="/assets/img/search.png"></image>
       </view>
    </view>
-   <view class="select-box">
+   <view class="select-box" bindtap="intoFilter">
       <image src="/assets/img/menu.png"></image>
    </view>
 </view>
