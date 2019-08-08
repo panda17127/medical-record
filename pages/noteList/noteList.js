@@ -13,11 +13,12 @@ let cycle = null  //计时器
 
 // 弹幕参数
 class Doomm {
-   constructor(text, top, time) {  //内容，顶部距离，运行时间，颜色（参数可自定义增加）
+   constructor(text, top, time, icon) {  //内容，顶部距离，运行时间，颜色（参数可自定义增加）
       this.text = text;
       this.top = top;
       this.time = time;
       this.display = true;
+      this.icon = icon;
       this.id = i++;
    }
 }
@@ -72,6 +73,7 @@ Page({
             let arr = this.data.noteList;
             let top = Math.floor(Math.random() * (viewHeight - hHeight) + hHeight);
             let time = Math.floor(Math.random() * 5 + 5);
+            let icon = Math.floor(Math.random() * 3 + 1);
             if (arr[ids] == undefined) {
                ids = 0
                // 1.循环一次，清除计时器
@@ -79,7 +81,7 @@ Page({
                // clearInterval(cycle)
                
                // 2.无限循环弹幕
-               doommList.push(new Doomm(arr[ids].name, top, time));
+               doommList.push(new Doomm(arr[ids].name, top, time, icon));
                if (doommList.length > 6) {   //删除运行过后的dom
                   doommList.splice(0, 1)
                }
@@ -88,7 +90,7 @@ Page({
                })
                ids++
             } else {
-               doommList.push(new Doomm(arr[ids].name, top, time));
+               doommList.push(new Doomm(arr[ids].name, top, time, icon));
                if (doommList.length > 6) {
                   doommList.splice(0, 1)
                }
