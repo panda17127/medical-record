@@ -1,13 +1,20 @@
 /* pages/noteList/noteList.wxss */
+.note-list{
+   z-index: 3;
+   height: 80%;
+   width: 100%;
+   position: absolute;
+}
 .note-item {
-   padding: 0 46rpx;
-   height: 120rpx;
-   border-bottom: 1rpx dashed #93928e;
+   padding: 0 46 rpx;
+   height: 120 rpx;
+   border-bottom: 1 rpx dashed #93928e;
 }
 .note-item-02 {
    position: absolute;
-   z-index: 10;
-   white-space: nowrap;
+   white-space:nowrap;/* 防止向下换行*/
+   animation-timing-function: linear;
+   animation-fill-mode: none;
 }
 .note-item-02 .note-icon {
    width: 120rpx;
@@ -26,7 +33,7 @@
    font-size: 30rpx;
 }
 
-@keyframes dmAnimation{
-   from{ left: 100%; }
-   to{ left: -100%; }
+@keyframes first{
+   from{left: 100%; }
+   to{left: -100%;}
 }

@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/pages/noteList/noteList.wxss" line="13" />
+    <bookmark url="file://$PROJECT_DIR$/pages/noteList/noteList.wxss" line="20" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6f83963-0842-463b-b3a9-2a256d8c9fbb" name="Default" comment="">
+    <list default="true" id="c6f83963-0842-463b-b3a9-2a256d8c9fbb" name="Default" comment="标题栏适配，完善筛选页面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.js" afterPath="$PROJECT_DIR$/components/header/header.js" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.wxml" afterPath="$PROJECT_DIR$/components/header/header.wxml" />
-      <change beforePath="$PROJECT_DIR$/components/header/header.wxss" afterPath="$PROJECT_DIR$/components/header/header.wxss" />
-      <change beforePath="$PROJECT_DIR$/components/tabbar/tabbar.js" afterPath="$PROJECT_DIR$/components/tabbar/tabbar.js" />
-      <change beforePath="$PROJECT_DIR$/components/tabbar/tabbar.wxml" afterPath="$PROJECT_DIR$/components/tabbar/tabbar.wxml" />
-      <change beforePath="$PROJECT_DIR$/pages/home/home.js" afterPath="$PROJECT_DIR$/pages/home/home.js" />
-      <change beforePath="$PROJECT_DIR$/pages/home/home.wxml" afterPath="$PROJECT_DIR$/pages/home/home.wxml" />
-      <change beforePath="$PROJECT_DIR$/pages/noteList/filter/filter.wxml" afterPath="$PROJECT_DIR$/pages/noteList/filter/filter.wxml" />
-      <change beforePath="$PROJECT_DIR$/pages/noteList/filter/filter.wxss" afterPath="$PROJECT_DIR$/pages/noteList/filter/filter.wxss" />
+      <change beforePath="$PROJECT_DIR$/pages/noteList/noteList.js" afterPath="$PROJECT_DIR$/pages/noteList/noteList.js" />
+      <change beforePath="$PROJECT_DIR$/pages/noteList/noteList.wxml" afterPath="$PROJECT_DIR$/pages/noteList/noteList.wxml" />
+      <change beforePath="$PROJECT_DIR$/pages/noteList/noteList.wxss" afterPath="$PROJECT_DIR$/pages/noteList/noteList.wxss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,64 +21,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.40670732">
+    <splitter split-orientation="horizontal" split-proportion="0.475">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="noteList.wxml" pinned="false" current-in-tab="false">
+          <file leaf-file-name="noteList.wxml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pages/noteList/noteList.wxml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="276">
-                  <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="header.wxml" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/components/header/header.wxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="69">
-                  <caret line="2" column="35" lean-forward="false" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="filter.wxml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/noteList/filter/filter.wxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="notice.wxml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/mine/notice/notice.wxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="184">
-                  <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="tabbar.wxml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/components/tabbar/tabbar.wxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="184">
-                  <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="41" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="home.wxml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/home/home.wxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="207">
-                  <caret line="8" column="79" lean-forward="false" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="79" />
+                <state relative-caret-position="299">
+                  <caret line="12" column="134" lean-forward="false" selection-start-line="12" selection-start-column="134" selection-end-line="12" selection-end-column="134" />
                   <folding />
                 </state>
               </provider>
@@ -115,83 +58,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="notice.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/mine/notice/notice.js">
+          <file leaf-file-name="noteList.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/pages/noteList/noteList.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="805">
-                  <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+                <state relative-caret-position="203">
+                  <caret line="69" column="50" lean-forward="false" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="notice.wxss" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/mine/notice/notice.wxss">
+          <file leaf-file-name="noteList.wxss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/pages/noteList/noteList.wxss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="161">
-                  <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mine.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/mine/mine.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="667">
-                  <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="filter.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/noteList/filter/filter.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="14" column="3" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="65" selection-end-column="2" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="header.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/components/header/header.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/pages/home/home.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="29" column="6" lean-forward="true" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="tabbar.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/components/tabbar/tabbar.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="92">
-                  <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="header.wxss" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/components/header/header.wxss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+                <state relative-caret-position="-5">
+                  <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -207,6 +88,9 @@
       <find>getUserInfo</find>
       <find>gobalData</find>
       <find>get</find>
+      <find>arr</find>
+      <find>arr[ids]</find>
+      <find>that</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -232,9 +116,6 @@
         <option value="$PROJECT_DIR$/pages/noteList/noteList.json" />
         <option value="$PROJECT_DIR$/pages/home/home.wxss" />
         <option value="$PROJECT_DIR$/utils/util.js" />
-        <option value="$PROJECT_DIR$/pages/noteList/noteList.js" />
-        <option value="$PROJECT_DIR$/pages/noteList/noteList.wxss" />
-        <option value="$PROJECT_DIR$/pages/noteList/noteList.wxml" />
         <option value="$PROJECT_DIR$/pages/mine/mine.wxss" />
         <option value="$PROJECT_DIR$/app.wxss" />
         <option value="$PROJECT_DIR$/pages/mine/about/about.wxml" />
@@ -257,6 +138,9 @@
         <option value="$PROJECT_DIR$/components/header/header.wxss" />
         <option value="$PROJECT_DIR$/components/header/header.wxml" />
         <option value="$PROJECT_DIR$/components/header/header.js" />
+        <option value="$PROJECT_DIR$/pages/noteList/noteList.wxss" />
+        <option value="$PROJECT_DIR$/pages/noteList/noteList.wxml" />
+        <option value="$PROJECT_DIR$/pages/noteList/noteList.js" />
       </list>
     </option>
   </component>
@@ -448,7 +332,7 @@
       <workItem from="1564968498998" duration="17239000" />
       <workItem from="1565055895842" duration="20635000" />
       <workItem from="1565142593313" duration="10168000" />
-      <workItem from="1565228122308" duration="9485000" />
+      <workItem from="1565228122308" duration="17506000" />
     </task>
     <task id="LOCAL-00001" summary="个人中心">
       <created>1565085565847</created>
@@ -471,11 +355,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565164921025</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="标题栏适配，完善筛选页面">
+      <created>1565248013550</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1565248013550</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147451000" />
+    <option name="totallyTimeSpent" value="155472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -510,7 +401,8 @@
     <MESSAGE value="个人中心" />
     <MESSAGE value="添加公告和关于" />
     <MESSAGE value="添加筛选" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加筛选" />
+    <MESSAGE value="标题栏适配，完善筛选页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="标题栏适配，完善筛选页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -673,14 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/noteList/noteList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="64" column="21" lean-forward="false" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/mine/about/about.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -693,6 +577,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
           <caret line="35" column="23" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -771,14 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="42" column="16" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/noteList/filter/filter.wxss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -787,26 +664,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/noteList/noteList.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/noteList/noteList.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -887,16 +748,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/header/header.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="2" column="35" lean-forward="false" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        <state relative-caret-position="368">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/header/header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        <state relative-caret-position="18">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/noteList/noteList.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="12" column="134" lean-forward="false" selection-start-line="12" selection-start-column="134" selection-end-line="12" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/noteList/noteList.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="42" column="16" lean-forward="true" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/noteList/noteList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="69" column="50" lean-forward="false" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
           <folding />
         </state>
       </provider>
