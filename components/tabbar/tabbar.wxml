@@ -1,12 +1,15 @@
 <!--components/tabbar/index.wxml-->
-<view class="tabbar flex flex-js flex-ac">
-   <view class="refresh-box">
+<view class="tabbar back_f5ae66 flex flex-js flex-ac">
+   <view class="refresh-box flex-none">
       <image src="/assets/img/refresh.png"></image>
    </view>
    <!--<view class="logo-box">-->
       <!--<image src="/assets/img/logo.png"></image>-->
    <!--</view>-->
-   <view class="me-box" bindtap="intoMine">
+   <view class="form-group">
+      <input class="control-input" placeholder="NEW NOTE" placeholder-class="fs32"/>
+   </view>
+   <view class="me-box flex-none" bindtap="intoMine">
       <image src="/assets/img/me.png"></image>
    </view>
 </view>

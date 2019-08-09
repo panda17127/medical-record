@@ -3,20 +3,26 @@
 
 .header {
    width: 100%;
+   padding-bottom: 40rpx;
+}
+.header .header-title-box {
    height: 88rpx;
-   background-color: #f5ae66;
-   padding-left: 40rpx;
    padding-bottom: 20rpx;
 }
 .header .back {
+   position: absolute;
+   left: 0;
+   
    width: 63rpx;
    height: 44rpx;
+   padding: 10rpx 46rpx;
 }
-.header .input-group {
-   margin-left: 65rpx;
+.header .header-input-box {
+   margin-left: 46rpx;
+   margin-right: 46rpx;
 }
 .header .input-group .input-control {
-   width: 195rpx;
+   width: 465rpx;
    height: 55rpx;
    border-radius: 8rpx;
    background-color: #fdeece;

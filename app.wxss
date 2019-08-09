@@ -37,6 +37,12 @@
    color: #333;
 }
 
+/*背景颜色*/
+.back_f5ae66 {
+   background-color: #f5ae66;
+}
+
+
 /*图片100%*/
 image {
    width: 100%;

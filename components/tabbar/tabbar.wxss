@@ -7,19 +7,29 @@
    bottom: 0;
    
    width: 670rpx;
-   height: 120rpx;
+   height: 135rpx;
    padding: 0 40rpx;
-   background-color: transparent;
 }
 .tabbar .refresh-box {
-   width: 82rpx;
-   height: 93rpx;
+   width: 74rpx;
+   height: 81rpx;
 }
 .tabbar .logo-box {
    width: 157rpx;
    height: 75rpx;
 }
 .tabbar .me-box {
-   width: 120rpx;
-   height: 71rpx;
+   width: 112rpx;
+   height: 64rpx;
+}
+.tabbar .form-group {
+   width: 100%;
+   text-align: center;
+   margin: 0 24rpx;
+}
+.tabbar .form-group .control-input {
+   padding-left: 24rpx;
+   background-color: #fff;
+   font-size: 32rpx;
+   border-radius: 6rpx;
 }

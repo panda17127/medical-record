@@ -1,15 +1,20 @@
 <!--components/header/index.wxml-->
-<view class="header flex flex-ac" style="padding-top:{{statusBarHeight}}px;">
-   <view class="back" bindtap="back">
-      <image src="/assets/img/back.png"></image>
-   </view>
-   <view class="input-group pos-r">
-      <input class="input-control fs24"/>
-      <view class="search-box">
-         <image src="/assets/img/search.png"></image>
+<view class="header back_f5ae66" style="padding-top:{{statusBarHeight}}px;">
+   <view class="header-title-box flex flex-ac flex-jc pos-r">
+      <view wx:if="{{back}}" class="back" bindtap="back">
+         <image src="/assets/img/back.png"></image>
       </view>
+      <view class="fs32 title">{{title}}</view>
    </view>
-   <view class="select-box" bindtap="intoFilter">
-      <image src="/assets/img/menu.png"></image>
+   <view class="header-input-box flex flex-ac flex-js">
+      <view class="input-group pos-r">
+         <input class="input-control fs24"/>
+         <view class="search-box">
+            <image src="/assets/img/search.png"></image>
+         </view>
+      </view>
+      <view class="select-box" bindtap="intoFilter">
+         <image src="/assets/img/menu.png"></image>
+      </view>
    </view>
 </view>

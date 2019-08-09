@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-   <view class="guide-page" bindtap="handleToHome">
+   <view class="guide-page">
       <image src="/assets/img/guide_page.png"></image>
    </view>
 </view>

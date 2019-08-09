@@ -12,7 +12,7 @@ let ids = 0;
 let cycle = null  //计时器
 
 // 弹幕参数
-class Doomm {
+class Doomm {0
    constructor(text, top, time, icon) {  //内容，顶部距离，运行时间，颜色（参数可自定义增加）
       this.text = text;
       this.top = top;

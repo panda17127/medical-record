@@ -7,11 +7,13 @@ Page({
    
    },
    onLoad () {
-   
+      this.handleToHome();
    },
    handleToHome () {
-      wx.navigateTo({
-        url: '../home/home'
-      })
+      setTimeout(() => {
+         wx.redirectTo({
+            url: '../home/home'
+         })
+      }, 3000)
    }
 })
