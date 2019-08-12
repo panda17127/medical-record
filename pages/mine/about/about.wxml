@@ -1,5 +1,8 @@
 <!--pages/mine/about/about.wxml-->
 <view class="conatainer">
+   <view class="bg-box">
+      <image src="/assets/img/bg.png"></image>
+   </view>
    <view class="about">
       <view class="about-item flex flex-ac">
          <view class="about-item-circle"></view>

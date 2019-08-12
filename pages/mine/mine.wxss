@@ -1,7 +1,7 @@
 /* pages/mine/mine.wxss */
 .mine-top {
    background-color: #f5ae66;
-   padding: 85rpx 0;
+   padding: 110rpx 0;
 }
 .mine-info {
    margin-right: 75rpx;
@@ -20,7 +20,7 @@
    margin-right: 60rpx;
 }
 .mine-word-item-mb {
-   margin-bottom: 45rpx;
+   margin-bottom: 60rpx;
 }
 .mine-list {
    padding: 80rpx 86rpx;

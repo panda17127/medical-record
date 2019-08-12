@@ -1,14 +1,16 @@
 /* pages/noteList/noteList.wxss */
+
 .note-list{
-   z-index: 3;
    height: 80%;
    width: 100%;
-   position: absolute;
+   overflow: hidden;
 }
 .note-item {
    padding: 0 46rpx;
-   height: 120 rpx;
-   border-bottom: 1 rpx dashed #93928e;
+   height: 120rpx;
+}
+.note-item-mb {
+   border-bottom: 1rpx dashed #93928e;
 }
 .note-item-02 {
    position: absolute;

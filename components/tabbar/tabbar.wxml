@@ -1,6 +1,6 @@
 <!--components/tabbar/index.wxml-->
 <view class="tabbar back_f5ae66 flex flex-js flex-ac">
-   <view class="refresh-box flex-none">
+   <view class="refresh-box flex-none" bindtap="toggleList">
       <image src="/assets/img/refresh.png"></image>
    </view>
    <!--<view class="logo-box">-->

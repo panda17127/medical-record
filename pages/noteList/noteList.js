@@ -33,14 +33,15 @@ Page({
       isIpx: globalData.systemInfo.isIpx,
       sWidth: globalData.systemInfo.screenWidth, // 屏幕宽度
       sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
-      noteList: [{name: 1}, {name: 2}, {name: 3}, {name: 4}, {name: 5}, {name: 6}, {name: 7}, {name: 8}, {name: 9}, {name: 10}],  // 笔记列表
+      noteList: [{name: 1}, {name: 2}, {name: 3}, {name: 4}, {name: 5}, {name: 6}, {name: 7}, {name: 8}, {name: 9}, {name: 10}, {name: 11}, {name: 12}],  // 笔记列表
+      listFlag: true,  // 是否列表显示
    },
    
    /**
     * 生命周期函数--监听页面加载
     */
    onLoad: function (options) {
-      this.showdoomm();
+   
    },
    
    /**
@@ -54,7 +55,7 @@ Page({
     * 生命周期函数--监听页面显示
     */
    onShow: function () {
-   
+      this.showdoomm();
    },
    
    /***
@@ -64,11 +65,17 @@ Page({
       let hHeight = 0;
       this.selectComponent("#header").getHeaderWxml().then(res => {
          hHeight = res.height;
+         this.setData({
+            hHeight
+         })
       })
       this.selectComponent("#tabBar").getTabbarWxml().then(res => {
          let sHeight = this.data.sHeight;
          let tHeight = res.height;
          let viewHeight = sHeight - tHeight - 120;
+         this.setData({
+            tHeight
+         })
          cycle = setInterval(() => {
             let arr = this.data.noteList;
             let top = Math.floor(Math.random() * (viewHeight - hHeight) + hHeight);
@@ -102,7 +109,21 @@ Page({
          }, 2000);
       })
    },
-   
+   // /***
+   //  * 切换列表
+   //  */
+   // toggleList() {
+   //    let listFlag = this.data.listFlag;
+   //    clearInterval(cycle);
+   //    ids = 0;
+   //    doommList = [];
+   //
+   //    if (!listFlag) {
+   //       console.log(11);
+   //       this.showdoomm();
+   //    }
+   //    this.triggerEvent('myevent');
+   // },
    /**
     * 生命周期函数--监听页面隐藏
     */

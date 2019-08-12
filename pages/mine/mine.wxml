@@ -1,5 +1,8 @@
 <!--pages/mine/mine.wxml-->
 <view class="container">
+   <view class="bg-box">
+      <image src="/assets/img/bg.png"></image>
+   </view>
    <view class="mine">
       <view class="mine-top flex flex-ac flex-jc co333">
          <view class="mine-info flex flex-col flex-ac flex-jc">
