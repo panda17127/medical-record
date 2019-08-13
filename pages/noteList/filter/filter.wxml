@@ -1,5 +1,8 @@
 <!--pages/noteList/filter/filter.wxml-->
 <view class="container">
+   <view class="bg-box">
+      <image src="/assets/img/bg.png"></image>
+   </view>
    <view class="filter">
       <view class="filter-type-wrap">
          <view class="filter-name fs32">类型</view>

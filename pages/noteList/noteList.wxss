@@ -10,6 +10,7 @@
    height: 120rpx;
 }
 .note-item-mb {
+   
    border-bottom: 1rpx dashed #93928e;
 }
 .note-item-02 {
