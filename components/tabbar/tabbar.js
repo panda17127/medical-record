@@ -40,9 +40,18 @@ Component({
       toggleList() {
          let pages = getCurrentPages();
          let curPage = pages[pages.length - 1];
-         curPage.setData({
-            listFlag: !curPage.data.listFlag
-         })
+         let listFlag = curPage.data.listFlag;
+         let listFlagDefault = curPage.data.listFlagDefault;
+         
+         if(listFlag < 2) {
+            curPage.setData({
+               listFlag: ++listFlag
+            })
+         } else {
+            curPage.setData({
+               listFlag: listFlagDefault
+            })
+         }
       }
    }
 })

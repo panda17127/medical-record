@@ -11,8 +11,11 @@ Page({
     * 页面的初始数据
     */
    data: {
+      listFlag: 0,  // 列表
+      listFlagDefault: 0,  // 列表默认
       hHeight: 0,  // 头部高度
-      notebookList: ['临床笔记', '科研笔记', '生活笔记', '我的灵感']
+      notebookList: ['临床笔记', '科研笔记', '生活笔记', '我的灵感'],
+      noteList: [{name: 1}, {name: 2}, {name: 3}, {name: 4}, {name: 5}, {name: 6}, {name: 7}, {name: 8}, {name: 9}, {name: 10}, {name: 11}, {name: 12}],  // 笔记列表
    },
    
    /**
@@ -53,14 +56,18 @@ Page({
     * 生命周期函数--监听页面隐藏
     */
    onHide: function () {
-   
+      clearInterval(cycle)
+      ids = 0;
+      doommList = []
    },
    
    /**
     * 生命周期函数--监听页面卸载
     */
    onUnload: function () {
-   
+      clearInterval(cycle)
+      ids = 0;
+      doommList = []
    },
    
    /**

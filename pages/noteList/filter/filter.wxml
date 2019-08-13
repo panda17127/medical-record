@@ -31,25 +31,40 @@
          <view>
             <view class="fs32 filter-name">科室</view>
             <view class="filter-type-item pos-r">
-               <view class="filter-type-bg">
-                  <image src="/assets/img/cate_bg.png"></image>
-               </view>
+               <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                  <view class="filter-type-bg">
+                     <image src="/assets/img/cate_sel_bg.png"></image>
+                  </view>
+                  <text class="filter-type-text fs28">临城深...</text>
+               </picker>
             </view>
          </view>
          <view>
             <view class="fs32 filter-name">学科</view>
             <view class="filter-type-item pos-r">
-               <view class="filter-type-bg">
-                  <image src="/assets/img/cate_bg.png"></image>
-               </view>
+               <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                  <view class="filter-type-bg">
+                     <image src="/assets/img/cate_sel_bg.png"></image>
+                  </view>
+                  <text class="filter-type-text fs28">临城深...</text>
+               </picker>
             </view>
          </view>
          <view>
             <view class="fs32 filter-name">时间</view>
-            <view class="filter-type-item pos-r">
-               <view class="filter-type-bg">
-                  <image src="/assets/img/cate_bg.png"></image>
+            <view class="filter-type-item flex flex-ac">
+               <view class="filter-time-up pos-r">
+                  <view class="filter-time-bg filter-time-mr">
+                     <image src="/assets/img/cate_time_bg.png"></image>
+                  </view>
+                  <text class="fs32 filter-time-text">升</text>
                </view>
+              <view class="filter-time-down pos-r">
+                 <view class="filter-time-bg">
+                    <image src="/assets/img/cate_time_bg.png"></image>
+                 </view>
+                 <text class="fs32 filter-time-text">降</text>
+              </view>
             </view>
          </view>
       </view>

@@ -5,26 +5,5 @@
    </view>
    <header id = 'header' back/>
    <tabbar id = 'tabBar' bindmyevent="toggleList"/>
-   <view wx:if="{{listFlag}}" class="note-list" style="padding-top: {{hHeight}}px; padding-bottom: {{tHeight}}px;">
-      <block wx:for="{{noteList}}" wx:key="index">
-         <scroll-view class="note-item flex flex-ac {{noteList.length == index + 1 ? '' : 'note-item-mb'}}">{{item.name}}</scroll-view>
-      </block>
-   </view>
-   <view wx:if="{{!listFlag}}" class="note-list">
-      <block wx:for="{{doommData}}" wx:key="id">
-         <view wx:if="{{item.display}}" class="note-item-02" style="animation: first {{item.time}}s linear forwards;top:{{item.top}}px;">
-            <view class="flex flex-ac">
-               <view class="note-icon">
-                  <image src="{{'/assets/img/note/note_icon1'+ item.icon + '.png'}}"></image>
-               </view>
-               <view class="note-text-box pos-r">
-                  <view class="note-text"></view>
-                  <view class="note-bg">
-                     <image src="/assets/img/note/note_bg01.png"></image>
-                  </view>
-               </view>
-            </view>
-         </view>
-      </block>
-   </view>
+   <danmu id = 'danmu' noteList="{{noteList}}" listFlag="{{listFlag}}"/>
 </view>

@@ -1,0 +1,42 @@
+/* components/danmu.wxss */
+@import "/app.wxss";
+.note-list{
+   height: 80%;
+   width: 100%;
+   overflow: hidden;
+}
+.note-item {
+   padding: 0 46rpx;
+   height: 120rpx;
+}
+.note-item-mb {
+   border-bottom: 1rpx dashed #93928e;
+}
+
+.note-item-02 {
+   position: absolute;
+   white-space:nowrap;/* 防止向下换行*/
+   animation-timing-function: linear;
+   animation-fill-mode: none;
+}
+.note-item-02 .note-icon {
+   width: 120rpx;
+   height: 120rpx;
+   z-index: 1;
+}
+.note-item-02 .note-bg {
+   width: 471rpx;
+   height: 67rpx;
+   margin-left: -76rpx;
+}
+.note-item-02 .note-text {
+   position: absolute;
+   top: 10rpx;
+   color: #666;
+   font-size: 30rpx;
+}
+
+@keyframes first{
+   from{left: 100%; }
+   to{left: -100%;}
+}

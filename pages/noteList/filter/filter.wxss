@@ -13,12 +13,29 @@
    width: 159rpx;
    height: 76rpx;
 }
+.filter-time-bg {
+   width: 76rpx;
+   height: 76rpx;
+}
+.filter-time-mr {
+   margin-right: 8rpx;
+}
 .filter-type-text {
    position: absolute;
    left: 0;
    top: 0;
 
    width: 100%;
+   height: 76rpx;
+   line-height: 76rpx;
+   padding-left: 15rpx;
+}
+.filter-time-text {
+   position: absolute;
+   left: 0;
+   top: 0;
+   
+   width: 76rpx;
    height: 76rpx;
    text-align: center;
    line-height: 76rpx;
