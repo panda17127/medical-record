@@ -23,7 +23,7 @@
 }
 .header .header-input-box {
    margin-left: 46rpx;
-   margin-right: 46rpx;
+   margin-right: 30rpx;
 }
 .header .input-group .input-control {
    width: 465rpx;
@@ -40,8 +40,8 @@
    width: 50rpx;
    height: 50rpx;
 }
-.header .select-box {
-   width: 53rpx;
-   height: 53rpx;
+.header .add-box {
+   width: 84rpx;
+   height: 39rpx;
    margin-left: 18rpx;
 }

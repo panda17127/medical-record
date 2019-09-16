@@ -13,8 +13,8 @@
             <image src="/assets/img/search.png"></image>
          </view>
       </view>
-      <view class="select-box" bindtap="intoFilter">
-         <image src="/assets/img/menu.png"></image>
+      <view class="add-box" bindtap="intoAdd">
+         <image src="/assets/img/new.png"></image>
       </view>
    </view>
 </view>

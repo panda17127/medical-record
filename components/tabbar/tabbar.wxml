@@ -3,12 +3,12 @@
    <view class="refresh-box flex-none" bindtap="toggleList">
       <image src="/assets/img/refresh.png"></image>
    </view>
-   <!--<view class="logo-box">-->
-      <!--<image src="/assets/img/logo.png"></image>-->
-   <!--</view>-->
-   <view class="form-group">
-      <input class="control-input" placeholder="NEW NOTE" placeholder-class="fs32"/>
+   <view class="home-box">
+      <image src="/assets/img/home.png"></image>
    </view>
+   <!--<view class="form-group">-->
+      <!--<input class="control-input" placeholder="NEW NOTE" placeholder-class="fs32"/>-->
+   <!--</view>-->
    <view class="me-box flex-none" bindtap="intoMine">
       <image src="/assets/img/me.png"></image>
    </view>

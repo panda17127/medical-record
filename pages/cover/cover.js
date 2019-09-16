@@ -14,6 +14,6 @@ Page({
          wx.redirectTo({
             url: '../home/home'
          })
-      }, 3000)
+      }, 300)
    }
 })

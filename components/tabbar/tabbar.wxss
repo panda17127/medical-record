@@ -6,22 +6,22 @@
    left: 0;
    bottom: 0;
    z-index: 99;
-   
-   width: 670rpx;
-   height: 135rpx;
-   padding: 0 40rpx;
+
+   width: 526rpx;
+   height: 154rpx;
+   padding: 0 112rpx;
 }
 .tabbar .refresh-box {
-   width: 74rpx;
-   height: 81rpx;
+   width: 67rpx;
+   height: 73rpx;
 }
-.tabbar .logo-box {
-   width: 157rpx;
-   height: 75rpx;
+.tabbar .home-box {
+   width: 125rpx;
+   height: 59rpx;
 }
 .tabbar .me-box {
-   width: 112rpx;
-   height: 64rpx;
+   width: 94rpx;
+   height: 57rpx;
 }
 .tabbar .form-group {
    width: 100%;

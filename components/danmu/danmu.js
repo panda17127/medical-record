@@ -8,7 +8,7 @@ let that = undefined;
 let doommList = [];
 let i = 0;
 let ids = 0;
-let cycle = null  //计时器
+let cycle = null; //计时器
 
 // 弹幕参数
 class Doomm {
