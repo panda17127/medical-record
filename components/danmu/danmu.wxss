@@ -5,12 +5,39 @@
    width: 100%;
    overflow: hidden;
 }
-.note-item {
+.note-item-01 {
    padding: 0 46rpx;
    height: 120rpx;
+   border-bottom: 1rpx dashed #93928e;
 }
 .note-item-mb {
    border-bottom: 1rpx dashed #93928e;
+}
+.note-item-01 .note-icon {
+   width: 71rpx;
+   height: 71rpx;
+   margin-right: 30rpx;
+}
+.note-item-01 .right-icon {
+  width: 17rpx;
+  height: 33rpx;
+  font-size: 0;
+}
+.note-item-01 .note-right-top {
+  margin-bottom:20rpx;
+}
+.note-item-01 .note-right {
+  width: 100%;
+}
+.note-item-01 .note-right>view {
+  width: 100%;
+}
+.item-foot {
+  padding: 30rpx 0;
+}
+.item-foot .no-more {
+  width: 133rpx;
+  height: 35rpx;
 }
 
 .note-item-02 {

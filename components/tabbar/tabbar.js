@@ -52,6 +52,12 @@ Component({
                listFlag: listFlagDefault
             })
          }
+	
+	      console.log(listFlag);
+	      if (listFlag === 2) {
+		      console.log(curPage.danmu);
+		      curPage.danmu.showdoomm();
+	      }
       }
    }
 })

@@ -1,16 +1,13 @@
 <!--pages/mine/about/about.wxml-->
-<view class="conatainer">
-   <view class="bg-box">
-      <image src="/assets/img/bg.png"></image>
-   </view>
-   <view class="about">
-      <view class="about-item flex flex-ac">
-         <view class="about-item-circle"></view>
-         <view class="about-item-text fs30">公众号：医学记</view>
+<view class="container">
+   <view class="about backf9f5eb">
+      <view class="about-item backfff flex flex-ac flex-js">
+         <view class="fs30">微信公众号</view>
+         <view class="fs30 co939393">医学记</view>
       </view>
-      <view class="about-item flex flex-ac">
-         <view class="about-item-circle"></view>
-         <view class="about-item-text fs30">联系我们：微博@医学记</view>
+      <view class="about-item backfff flex flex-ac flex-js">
+         <view class="fs30">新浪微博</view>
+         <view class="fs30 co939393">@医学记</view>
       </view>
    </view>
 </view>

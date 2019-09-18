@@ -1,11 +1,32 @@
 <!--components/danmu.wxml-->
-<view class="danmu">
-   <view wx:if="{{listFlag == 1}}" class="note-list" style="padding-top: {{hHeight}}px; padding-bottom: {{tHeight}}px;">
+<view class="danmu" style="padding-top: {{hHeight}}px; padding-bottom: {{tHeight}}px;">
+   <view wx:if="{{listFlag === 1}}" class="note-list">
       <block wx:for="{{noteList}}" wx:key="index">
-         <scroll-view class="note-item flex flex-ac {{noteList.length == index + 1 ? '' : 'note-item-mb'}}">{{item.name}}</scroll-view>
+         <view class="note-item-01 flex flex-ac">
+            <view class="note-icon flex-none">
+               <image src="{{item.icon}}"></image>
+            </view>
+            <view class="note-right flex flex-col flex-ac flex-jc">
+               <view class="note-right-top flex flex-ac flex-js">
+                  <view class="note-sub fs32">{{item.sub}}</view>
+                  <view class="note-item fs24 co939393">{{item.time}}</view>
+               </view>
+               <view class="flex flex-ac flex-js">
+                  <view class="fs28 co939393">{{item.name + index}}</view>
+                  <view class="right-icon">
+                     <image src="/assets/img/right.png"></image>
+                  </view>
+               </view>
+            </view>
+         </view>
       </block>
+      <view class="item-foot flex flex-jc">
+         <view class="no-more">
+            <image src="/assets/img/no_more.png"></image>
+         </view>
+      </view>
    </view>
-   <view wx:if="{{listFlag == 2}}" class="note-list">
+   <view wx:if="{{listFlag === 2}}" class="note-list">
       <block wx:for="{{doommData}}" wx:key="id">
          <view wx:if="{{item.display}}" class="note-item-02" style="animation: first {{item.time}}s linear forwards;top:{{item.top}}px;">
             <view class="flex flex-ac">

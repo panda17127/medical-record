@@ -1,7 +1,7 @@
 <!--components/header/index.wxml-->
-<view class="header back_f5ae66" style="padding-top:{{statusBarHeight}}px;">
+<view class="header backf5ae66" style="padding-top:{{statusBarHeight}}px;">
    <view class="header-title-box flex flex-ac flex-jc pos-r">
-      <view wx:if="{{back}}" class="back" bindtap="back">
+      <view wx:if="{{!back}}" class="back" bindtap="back">
          <image src="/assets/img/back.png"></image>
       </view>
       <view class="fs32 title">{{title}}</view>
@@ -13,7 +13,7 @@
             <image src="/assets/img/search.png"></image>
          </view>
       </view>
-      <view class="add-box" bindtap="intoAdd">
+      <view wx:if="{{!add}}" class="add-box flex-none" bindtap="intoAdd">
          <image src="/assets/img/new.png"></image>
       </view>
    </view>

@@ -12,7 +12,11 @@ Component({
       title: {
          type: String,
          value: '医学记'
-      }
+      },
+	   add: {
+      	type: Boolean,
+			value: false
+	   }
    },
    
    /**

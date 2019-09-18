@@ -38,6 +38,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 5,
 			"list": [
@@ -80,6 +84,27 @@
 					"id": -1,
 					"name": "筛选",
 					"pathName": "pages/noteList/filter/filter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设置",
+					"pathName": "pages/mine/setting/setting",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "语言",
+					"pathName": "pages/mine/language/language",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "背景",
+					"pathName": "pages/mine/background/background",
 					"scene": null
 				}
 			]

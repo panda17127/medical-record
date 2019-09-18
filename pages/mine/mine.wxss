@@ -1,7 +1,7 @@
 /* pages/mine/mine.wxss */
 .mine-top {
    background-color: #f5ae66;
-   padding: 110rpx 0;
+   padding: 100rpx;
 }
 .mine-info {
    margin-right: 75rpx;
@@ -13,25 +13,36 @@
    border-radius: 50%;
    margin-bottom: 50rpx;
 }
-.mine-word-item view:first-child {
-   margin-right: 140rpx;
+.mine-word {
+  width: 100%;
 }
-.mine-word-item view:nth-child(2) {
-   margin-right: 60rpx;
+.mine-word-item {
+  width: 100%;
+}
+.artcle-num {
+  width: 150rpx;
+}
+.word-num {
+  width: 200rpx;
+}
+.artcle-num .fs32,
+.word-num .fs32 {
+  margin-right: 10rpx;
 }
 .mine-word-item-mb {
-   margin-bottom: 60rpx;
-}
-.mine-list {
-   padding: 80rpx 86rpx;
+   margin-bottom: 50rpx;
 }
 .mine-list .mine-item {
-   padding: 24rpx;
+  height: 125rpx;
+  padding: 0 46rpx;
+  margin-bottom: 6rpx;
 }
-.mine-list .mine-item .mine-item-circle {
-   width: 25rpx;
-   height: 25rpx;
-   border-radius: 50%;
-   border: 1rpx solid #555;
-   margin-right: 12rpx;
+.mine-list .mine-item .mine-item-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.right-icon {
+  width: 17rpx;
+  height: 33rpx;
 }

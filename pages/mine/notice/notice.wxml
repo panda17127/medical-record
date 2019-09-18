@@ -1,11 +1,8 @@
 <!--pages/mine/notice/notice.wxml-->
 <view class="container">
-   <view class="bg-box">
-      <image src="/assets/img/bg.png"></image>
-   </view>
-   <view class="notice">
-      <view class="notice-content fs32">
-         欢迎来到医学记: )
+   <view class="notice backf9f5eb flex flex-jc">
+      <view class="notice-content">
+         <image src="/assets/img/mine/rule.png"></image>
       </view>
    </view>
 </view>

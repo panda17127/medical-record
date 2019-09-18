@@ -5,45 +5,40 @@
    </view>
    <view class="mine">
       <view class="mine-top flex flex-ac flex-jc co333">
-         <view class="mine-info flex flex-col flex-ac flex-jc">
-            <view class="avatar"></view>
-            <view class="name fs32">xixo</view>
-         </view>
-         <view class="mine-word flex flex-col flex-ac flex-jc">
-            <view class="mine-word-item mine-word-item-mb flex flex-ac">
-               <view class="fs28">临床</view>
-               <view class="fs24">字</view>
-               <view class="fs24">篇</view>
-            </view>
-            <view class="mine-word-item mine-word-item-mb flex flex-ac">
-               <view class="fs28">科研</view>
-               <view class="fs24">字</view>
-               <view class="fs24">篇</view>
-            </view>
-            <view class="mine-word-item flex flex-ac">
-               <view class="fs28">生活</view>
-               <view class="fs24">字</view>
-               <view class="fs24">篇</view>
-            </view>
+         <!--<view class="mine-info flex flex-col flex-ac flex-jc">-->
+            <!--<view class="avatar"></view>-->
+            <!--<view class="name fs32">xixo</view>-->
+         <!--</view>-->
+         <view class="mine-word flex flex-col flex-ac">
+            <block wx:for="{{wordList}}" wx:key="{{index}}">
+               <view class="mine-word-item {{ index + 1 === wordList.length ? '' : 'mine-word-item-mb'}} flex flex-ac flex-js">
+                  <view class="fs32">{{item.name}}</view>
+                  <view class="artcle-num flex flex-ac flex-je">
+                     <view class="fs32">{{item.artcleNum}}</view>
+                     <view class="fs24">篇</view>
+                  </view>
+                  <view class="word-num flex flex-ac flex-je">
+                     <view class="fs32">{{item.wordNum}}</view>
+                     <view class="fs24">字</view>
+                  </view>
+               </view>
+            </block>
          </view>
       </view>
       <view class="mine-list">
-         <view class="mine-item flex flex-ac" bindtap="intoNotice">
-            <view class="mine-item-circle"></view>
-            <view class="mine-item-text fs32">公告牌</view>
-         </view>
-         <view class="mine-item flex flex-ac">
-            <view class="mine-item-circle"></view>
-            <view class="mine-item-text fs32">背景</view>
-         </view>
-         <view class="mine-item flex flex-ac">
-            <view class="mine-item-circle"></view>
-            <view class="mine-item-text fs32">系统</view>
-         </view>
-         <view class="mine-item flex flex-ac" bindtap="intoAbout">
-            <view class="mine-item-circle"></view>
-            <view class="mine-item-text fs32">关于医学记</view>
-         </view>
+         <block wx:for="{{mineList}}" wx:key="{{index}}">
+            <view class="mine-item backf5f5f5 flex flex-ac flex-js" bindtap="{{item.fn}}">
+               <view class="flex flex-ac">
+                  <view class="mine-item-icon">
+                     <image src="/assets/img/mine/mine_0{{index + 1}}.png"></image>
+                  </view>
+                  <view class="mine-item-text fs32">{{item.name}}</view>
+               </view>
+               <view class="right-icon">
+                  <image src="/assets/img/right.png"></image>
+               </view>
+            </view>
+         </block>
       </view>
    </view>
 </view>

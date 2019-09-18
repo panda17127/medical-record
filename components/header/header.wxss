@@ -25,8 +25,10 @@
    margin-left: 46rpx;
    margin-right: 30rpx;
 }
+.header .input-group {
+   width: 100%;
+}
 .header .input-group .input-control {
-   width: 465rpx;
    height: 55rpx;
    border-radius: 8rpx;
    background-color: #fdeece;

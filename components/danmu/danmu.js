@@ -47,7 +47,16 @@ Component({
       sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
    },
    ready: function() {
-      this.showdoomm()
+	   this.selectComponent("#header").getHeaderWxml().then(res => {
+		   this.setData({
+			   hHeight: res.height
+		   })
+	   })
+	   this.selectComponent("#tabBar").getTabbarWxml().then(res => {
+		   this.setData({
+			   tHeight: res.height
+		   })
+	   })
    },
    /**
     * 组件的方法列表
@@ -56,7 +65,7 @@ Component({
       /***
        *  显示弹幕
        */
-      showdoomm: function () {
+      showdoomm () {
          let hHeight = 0;
          this.selectComponent("#header").getHeaderWxml().then(res => {
             hHeight = res.height;
@@ -73,38 +82,44 @@ Component({
                tHeight,
                noteList: arr
             })
-            console.log(this.data.noteList);
-            cycle = setInterval(() => {
-               let top = Math.floor(Math.random() * (viewHeight - hHeight) + hHeight);
-               let time = Math.floor(Math.random() * 5 + 5);
-               let icon = Math.floor(Math.random() * 3 + 1);
-               if (arr[ids] == undefined) {
-                  ids = 0
-                  // 1.循环一次，清除计时器
-                  // doommList = []
-                  // clearInterval(cycle)
-                  
-                  // 2.无限循环弹幕
-                  doommList.push(new Doomm(arr[ids].name, top, time, icon));
-                  if (doommList.length > 6) {   //删除运行过后的dom
-                     doommList.splice(0, 1)
-                  }
-                  this.setData({
-                     doommData: doommList
-                  })
-                  ids++
-               } else {
-                  doommList.push(new Doomm(arr[ids].name, top, time, icon));
-                  if (doommList.length > 6) {
-                     doommList.splice(0, 1)
-                  }
-                  this.setData({
-                     doommData: doommList
-                  })
-                  ids++
-               }
-            }, 2000);
+				let timer = () => {
+					let top = Math.floor(Math.random() * (viewHeight - hHeight) + hHeight);
+					let time = Math.floor(Math.random() * 5 + 5);
+					let icon = Math.floor(Math.random() * 3 + 1);
+					if (arr[ids] == undefined) {
+						ids = 0
+						// 1.循环一次，清除计时器
+						// doommList = []
+						// clearInterval(cycle)
+						
+						// 2.无限循环弹幕
+						doommList.push(new Doomm(arr[ids].name, top, time, icon));
+						if (doommList.length > 6) {   //删除运行过后的dom
+							doommList.splice(0, 1)
+						}
+						this.setData({
+							doommData: doommList
+						})
+						ids++
+					} else {
+						doommList.push(new Doomm(arr[ids].name, top, time, icon));
+						if (doommList.length > 6) {
+							doommList.splice(0, 1)
+						}
+						this.setData({
+							doommData: doommList
+						})
+						ids++
+					}
+					return timer;
+				}
+				cycle = setInterval(timer(), 3000);
          })
       },
+	   stopInterval () {
+		   clearInterval(cycle)
+		   ids = 0;
+		   doommList = []
+	   }
    }
 })

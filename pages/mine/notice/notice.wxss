@@ -1,12 +1,8 @@
 /* pages/mine/notice/notice.wxss */
 .notice {
-   margin-top: 94rpx;
-   margin-left: 80rpx;
-   margin-right: 80rpx;
+  padding: 90rpx 0;
 }
 .notice-content {
-   border: 1px dashed #2d2d2d;
-   height: 524rpx;
-   border-radius: 20rpx;
-   padding: 72rpx 55rpx;
+  width: 647rpx;
+  height: 1179rpx;
 }

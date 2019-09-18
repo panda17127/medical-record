@@ -6,7 +6,10 @@
     "pages/mine/mine",
     "pages/mine/about/about",
     "pages/mine/notice/notice",
-    "pages/noteList/filter/filter"
+    "pages/noteList/filter/filter",
+    "pages/mine/setting/setting",
+    "pages/mine/language/language",
+    "pages/mine/background/background"
   ],
   "window": {
     "backgroundTextStyle": "light",

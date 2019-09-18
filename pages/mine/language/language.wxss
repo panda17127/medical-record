@@ -1,0 +1,15 @@
+/* pages/mine/language/language.wxss */
+page,
+.container,
+.language {
+  height: 100%;
+}
+.language-item {
+  padding: 0 46rpx;
+  margin-bottom: 2rpx;
+  height: 125rpx;
+}
+.ok-icon {
+  width: 35rpx;
+  height: 30rpx;
+}

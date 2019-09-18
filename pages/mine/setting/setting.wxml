@@ -1,0 +1,14 @@
+<!--pages/mine/setting/setting.wxml-->
+<view class="container">
+   <view class="setting backf9f5eb">
+      <view class="setting-item backfff flex flex-ac flex-js">
+         <view class="fs32">使用许可协议</view>
+         <view class="right-icon">
+            <image src="/assets/img/right.png"></image>
+         </view>
+      </view>
+      <view class="setting-item backfff flex flex-ac flex-js">
+         <view class="fs32">版本号V1.0</view>
+      </view>
+   </view>
+</view>
