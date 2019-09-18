@@ -1,0 +1,39 @@
+/* pages/mine/background/background.wxss */
+
+page,
+.container,
+.bg {
+  height: 100%;
+}
+.bg-list {
+  padding: 220rpx 60rpx 0;
+}
+.bg-item {
+  position: relative;
+  margin-bottom: 37rpx;
+  width: 186rpx;
+  height: 186rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, .3);
+}
+.bg-item-mr {
+  margin-right: 37rpx;
+}
+.bg-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.bg-img image {
+  border-radius: 12rpx;
+}
+.selected-icon {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 186rpx;
+  height: 42rpx;
+  z-index: 9;
+}

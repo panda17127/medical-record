@@ -1,0 +1,22 @@
+<!--pages/mine/background/background.wxml-->
+<view class="container">
+   <view class="bg backf9f5eb">
+      <view class="bg-list flex flex-wrap">
+         <block wx:for="{{bgList}}" wx:key="{{index}}">
+            <view class="bg-item {{index % 3 === 2 ? '' : 'bg-item-mr'}}">
+               <view class="bg-img">
+                  <image src="/assets/img/mine/bg/bg_0{{index + 1}}.png"></image>
+               </view>
+               <view class="selected-icon" wx:if="{{item.selected}}">
+                  <image src="/assets/img/mine/ok_bg.png"></image>
+               </view>
+            </view>
+         </block>
+      </view>
+      <view class="btn">
+         <view class="save">
+            <image src="/assets/img/save.png"></image>
+         </view>
+      </view>
+   </view>
+</view>
