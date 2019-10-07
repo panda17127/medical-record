@@ -1,5 +1,7 @@
 <!--index.wxml-->
 <view class="container">
+   <!-- 获取用户信息 -->
+   <button wx:if="{{!isLogin}}" class="btn-user" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
    <view class="bg-box">
       <image src="/assets/img/bg.png"></image>
    </view>

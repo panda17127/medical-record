@@ -1,6 +1,8 @@
 //app.js
+let util = require("./utils/util");
 App({
    onLaunch () {
+      util.checkNetConnect();
       this.getSystemInfo();
    },
    // 获取手机参数信息

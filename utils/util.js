@@ -1,3 +1,64 @@
+
+import { ENV } from '../config/config'
+
+/**
+ *  检查网络连接
+ *  返回网络类型, 有效值：
+ *  wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
+ */
+const checkNetConnect = () => {
+   return new Promise((resolve, reject) => {
+      wx.getNetworkType({
+         success: (res) => {
+            let networkType = res.networkType;
+            if (networkType === 'none') {
+               wx.showToast({
+                  title: '网络好像不给力耶',
+                  icon: 'fail',
+                  duration: 2000
+               })
+                
+               wx.stopPullDownRefresh();
+               wx.hideNavigationBarLoading();
+               return false;
+            } else {
+               resolve();
+            }
+         }
+      })
+   })
+}
+/**
+ * 
+ * @param {数据} data 
+ *    url：请求路径
+ *    method: 请求方法
+ *    data:  请求数据 
+ */
+const requestHttps = (data) => {
+   let header = {
+      "Content-Type": "application/json"
+   }
+   let reqHttp = new Promise((resolve, reject) => {
+      wx.request({
+         url: ENV.baseUrl + data.url,
+         data: data.data,
+         method: data.method,
+         header: header,
+         success: res => {
+            console.log(res);
+            resolve();
+         },
+         fail: res => {
+            console.log("请求接口失败");
+            console.log(res);
+         }
+      })
+   })
+   return reqHttp;
+}  
+
+
 /***
  *
  * @param date 日期
@@ -114,6 +175,8 @@ const getWxml = (name) => {
 }
 
 module.exports = {
+   checkNetConnect,
+   requestHttps,
    formatTime,
    throttle,
    getWxml

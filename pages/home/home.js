@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp();
 let util = require("../../utils/util");
+let requestHttps = util.requestHttps;
 let getWxml = util.getWxml;
 
 // pages/noteList/filter/filter.js
@@ -11,6 +12,7 @@ Page({
     * 页面的初始数据
     */
    data: {
+      isLogin: false, //是否登录
       listFlag: 0,  // 列表
       listFlagDefault: 0,  // 列表默认
       hHeight: 0,  // 头部高度
@@ -102,6 +104,42 @@ Page({
     */
    onShow: function () {
    
+   },
+
+   /**
+    * 获取用户信息
+    */
+   getUserInfo: function (e) {
+      wx.login({
+         success: (loginRes) => {
+            console.log(loginRes);
+            requestHttps({
+               url: '/wx_login',
+               method: 'post',
+               data: {
+                  code: loginRes.code,
+                  encryptedData: e.detail.encryptedData,
+                  iv: e.detail.iv
+               }
+            }).then(res => {
+               console.log(res);
+            }).catch(res => {
+               console.log(res);
+            })
+         },
+         fail: res => {
+            console.log(res);
+         }
+      })
+   },
+
+   /**
+    * 登录注册页面
+    */
+   wxLogin: function () {
+      new Promise((resovle, rejected)=> {
+
+      })
    },
    
    /***
