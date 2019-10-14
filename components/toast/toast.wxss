@@ -1,0 +1,38 @@
+/* component/toast/toast.wxss */
+.wx-toast {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+
+  height: 100%;
+  width: 100%;
+}
+.wx-toast-shadow {
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+.wx-toast-content {
+   color: #fff;
+   font-size: 32rpx;
+   padding: 20rpx 42rpx;
+
+   border-radius: 10rpx;
+   background: rgba(0, 0, 0, .5);
+}
+.wx-toast-top {
+    align-items: flex-start;
+    margin-top: 100rpx;
+}
+
+.wx-toast-middle {
+    align-items: center;
+    margin-top: -100rpx;
+}
+
+.wx-toast-bottom {
+    align-items: flex-end;
+    margin-top: -100rpx;
+}

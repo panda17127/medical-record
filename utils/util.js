@@ -46,12 +46,17 @@ const requestHttps = (data) => {
          method: data.method,
          header: header,
          success: res => {
-            console.log(res);
-            resolve();
+            let code = res.data.code;
+            if (code === 0) {
+               resolve(res.data.data);
+            } else {
+               reject(res);
+            }
          },
          fail: res => {
             console.log("请求接口失败");
-            console.log(res);
+            console.log(res); 
+            reject(res);
          }
       })
    })

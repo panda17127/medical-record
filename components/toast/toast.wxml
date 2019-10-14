@@ -1,0 +1,7 @@
+<!--component/toast/publish.wxml-->
+<view class="wx-toast"
+      hidden="{{flag}}">
+   <view class="wx-toast-shadow wx-toast-{{position}}">
+      <view class='wx-toast-content'>{{content}}</view>
+   </view>
+</view>

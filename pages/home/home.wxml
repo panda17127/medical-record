@@ -8,13 +8,14 @@
    <header id="header"/>
    <view wx:if="{{listFlag == 0}}" class="notebook-list" style="padding-top: {{hHeight}}px;">
       <block wx:for="{{notebookList}}" wx:key="index">
-         <view class="notebook-item flex flex-ac flex-jc" bindtap="intoNoteList">
+         <view class="notebook-item flex flex-ac flex-jc" bindtap="intoNoteList" data-id = "{{item.mean_cate_id}}">
             <view class="notebook-item-block"></view>
-            <view class="notebook-item-text fs32">{{item}}</view>
+            <view class="notebook-item-text fs32">{{item.cate_name}}</view>
             <view class="notebook-item-block"></view>
          </view>
       </block>
    </view>
    <danmu id='danmu' noteList="{{noteList}}" listFlag="{{listFlag}}"/>
-   <tabbar id="tabbar" />
+   <tabbar id="tabbar"></tabbar>
+   <toast id="toast"></toast>
 </view>

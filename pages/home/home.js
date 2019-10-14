@@ -16,7 +16,7 @@ Page({
       listFlag: 0,  // 列表
       listFlagDefault: 0,  // 列表默认
       hHeight: 0,  // 头部高度
-      notebookList: ['临床笔记', '科研笔记', '生活笔记', '我的灵感'],
+      notebookList: [], // 主菜单列表
       noteList: [
       	{
       		name: '周杰不是纠结',
@@ -85,18 +85,29 @@ Page({
     * 生命周期函数--监听页面加载
     */
    onLoad: function (options) {
+      // 头部高度
       this.selectComponent("#header").getHeaderWxml().then(res => {
          this.setData({
             hHeight: res.height
          })
       })
+      // 登录判断
+      let user = wx.getStorageSync('user');
+      if (user) {
+         this.setData({
+            isLogin: true
+         })
+      }
+      // 主菜单列表
+      this.getMeanCateList();
    },
    
    /**
     * 生命周期函数--监听页面初次渲染完成
     */
    onReady: function () {
-      this.danmu =  this.selectComponent('#danmu');
+      this.danmu = this.selectComponent('#danmu');
+      this.toast = this.selectComponent('#toast');
    },
    
    /**
@@ -110,6 +121,7 @@ Page({
     * 获取用户信息
     */
    getUserInfo: function (e) {
+      wx.showLoading({title: '正在登录...'});
       wx.login({
          success: (loginRes) => {
             console.log(loginRes);
@@ -122,9 +134,16 @@ Page({
                   iv: e.detail.iv
                }
             }).then(res => {
-               console.log(res);
+               // 存入用户数据
+               wx.setStorageSync('user', res);
+               // 隐藏遮罩
+               this.setData({
+                  isLogin: true
+               })
+               wx.hideLoading();
             }).catch(res => {
                console.log(res);
+               wx.hideLoading();
             })
          },
          fail: res => {
@@ -132,23 +151,31 @@ Page({
          }
       })
    },
-
+   
    /**
-    * 登录注册页面
+    * 请求主菜单列表
     */
-   wxLogin: function () {
-      new Promise((resovle, rejected)=> {
-
+   getMeanCateList: function () {
+      requestHttps({
+         url: '/getMeanCateList',
+         method: 'post'
+      }).then(res => {
+         this.setData({
+            notebookList: res
+         })
+      }).catch(res => {
+         console.log(res);
       })
    },
-   
+
    /***
     * 进入笔记列表
     */
-   intoNoteList: function () {
-     wx.navigateTo({
-       url: '../noteList/noteList'
-     }) 
+   intoNoteList: function (e) {
+      let id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+         url: `../noteList/noteList?id=${id}`
+      }) 
    },
    
    /**
