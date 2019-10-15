@@ -100,6 +100,8 @@ Page({
       }
       // 主菜单列表
       this.getMeanCateList();
+      // 笔记列表
+      this.getNoteList();
    },
    
    /**
@@ -163,6 +165,25 @@ Page({
          this.setData({
             notebookList: res
          })
+      }).catch(res => {
+         console.log(res);
+      })
+   },
+   
+   /**
+    * 请求笔记列表
+    */
+   getNoteList: function () {
+      let user = wx.getStorageSync('user');
+      requestHttps({
+         url: '/getNoteList',
+         method: 'post',
+         data: {
+            union_id: user.union_id,
+            mean_cate_id: 1
+         }
+      }).then(res => {
+         console.log(res);
       }).catch(res => {
          console.log(res);
       })
