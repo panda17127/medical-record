@@ -53,7 +53,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -115,6 +115,13 @@
 					"id": -1,
 					"name": "背景",
 					"pathName": "pages/mine/background/background",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增笔记",
+					"pathName": "pages/note/note",
 					"scene": null
 				}
 			]

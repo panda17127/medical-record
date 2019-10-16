@@ -26,6 +26,16 @@ Component({
             }).exec()
          })
       },
+
+      /**
+       * 进入首页
+       */
+      intoHome() {
+         wx.reLaunch({
+            url: '/pages/home/home'
+         })
+      },
+
       /***
        * 进入中心
        */
@@ -47,17 +57,15 @@ Component({
             curPage.setData({
                listFlag: ++listFlag
             })
+            if (listFlag === 2) {
+               curPage.selectComponent('#danmu').stopInterval();
+               curPage.selectComponent('#danmu').showdoomm();
+            }
          } else {
             curPage.setData({
                listFlag: listFlagDefault
             })
          }
-	
-	      console.log(listFlag);
-	      if (listFlag === 2) {
-		      console.log(curPage.danmu);
-		      curPage.danmu.showdoomm();
-	      }
       }
    }
 })

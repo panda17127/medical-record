@@ -1,0 +1,23 @@
+/* pages/note/note.wxss */
+.box {
+    padding: 0 46rpx;
+    margin-bottom: 8rpx;
+}
+.picker {
+    height: 98rpx;
+}
+.right-icon {
+    width: 17rpx;
+    height: 33rpx;
+    margin-left: 12rpx;
+}
+.input-control {
+    height: 98rpx;
+}
+.notes{
+    padding: 40rpx 46rpx;
+}
+.save {
+    width: 147rpx;
+    height: 67rpx;
+}

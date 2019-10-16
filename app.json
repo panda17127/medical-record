@@ -9,7 +9,8 @@
     "pages/noteList/filter/filter",
     "pages/mine/setting/setting",
     "pages/mine/language/language",
-    "pages/mine/background/background"
+    "pages/mine/background/background",
+    "pages/note/note"
   ],
   "window": {
     "backgroundTextStyle": "light",

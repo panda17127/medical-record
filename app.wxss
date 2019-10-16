@@ -1,5 +1,7 @@
 /**app.wxss**/
-
+page {
+   background-color: #f9f5eb;
+}
 /* 背景 */
 .bg-box {
    position: fixed;

@@ -2,7 +2,7 @@
 let util = require("../../utils/util");
 let getWxml = util.getWxml;
 
-let {globalData} = getApp();
+let { globalData } = getApp();
 
 Page({
    
@@ -15,7 +15,68 @@ Page({
       isIpx: globalData.systemInfo.isIpx,
       sWidth: globalData.systemInfo.screenWidth, // 屏幕宽度
       sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
-      noteList: [{name: 1}, {name: 2}, {name: 3}, {name: 4}, {name: 5}, {name: 6}, {name: 7}, {name: 8}, {name: 9}, {name: 10}, {name: 11}, {name: 12}],  // 笔记列表
+      noteList: [
+      	{
+      		name: '周杰不是纠结',
+		      icon: '/assets/img/ke.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      },
+	      {
+		      name: '周杰不是纠结',
+		      icon: '/assets/img/lin.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      },
+	      {
+		      name: '周杰不是纠结',
+		      icon: '/assets/img/ling.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      },
+	      {
+		      name: '周杰不是纠结',
+		      icon: '/assets/img/ke.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      },
+	      {
+		      name: '周杰不是纠结',
+		      icon: '/assets/img/sheng.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      },
+	      {
+		      name: '周杰不是纠结',
+		      icon: '/assets/img/ke.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      },
+	      {
+		      name: '周杰不是纠结',
+		      icon: '/assets/img/ke.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      },
+	      {
+		      name: '周杰不是纠结',
+		      icon: '/assets/img/ke.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      },
+	      {
+		      name: '周杰不是纠结',
+		      icon: '/assets/img/ke.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      },
+	      {
+		      name: '周杰不是纠结',
+		      icon: '/assets/img/ke.png',
+		      sub: '妇产科',
+		      time: '2019/01/09 12:30'
+	      }
+      ],  // 笔记列表
    },
    
    /**
@@ -29,7 +90,7 @@ Page({
     * 生命周期函数--监听页面初次渲染完成
     */
    onReady: function () {
-   
+      this.danmu = this.selectComponent("#danmu");
    },
    
    /**
@@ -42,18 +103,14 @@ Page({
     * 生命周期函数--监听页面隐藏
     */
    onHide: function () {
-      clearInterval(cycle)
-      ids = 0;
-      doommList = []
+      this.danmu.stopInterval();
    },
    
    /**
     * 生命周期函数--监听页面卸载
     */
    onUnload: function () {
-      clearInterval(cycle)
-      ids = 0;
-      doommList = []
+      this.danmu.stopInterval();
    },
    
    /**

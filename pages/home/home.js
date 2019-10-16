@@ -16,6 +16,7 @@ Page({
       listFlag: 0,  // 列表
       listFlagDefault: 0,  // 列表默认
       hHeight: 0,  // 头部高度
+      tHeight: 0,  // 底部高度
       notebookList: [], // 主菜单列表
       noteList: [
       	{
@@ -91,6 +92,12 @@ Page({
             hHeight: res.height
          })
       })
+      // 底部高度
+      this.selectComponent("#tabbar").getTabbarWxml().then(res => {
+         this.setData({
+            tHeight: res.height
+         })
+      })
       // 登录判断
       let user = wx.getStorageSync('user');
       if (user) {
@@ -108,7 +115,6 @@ Page({
     * 生命周期函数--监听页面初次渲染完成
     */
    onReady: function () {
-      this.danmu = this.selectComponent('#danmu');
       this.toast = this.selectComponent('#toast');
    },
    
@@ -179,8 +185,7 @@ Page({
          url: '/getNoteList',
          method: 'post',
          data: {
-            union_id: user.union_id,
-            mean_cate_id: 1
+            union_id: user.union_id
          }
       }).then(res => {
          console.log(res);
@@ -203,14 +208,18 @@ Page({
     * 生命周期函数--监听页面隐藏
     */
    onHide: function () {
-	   this.danmu.stopInterval();
+      if (this.data.listFlag !== 0) {
+         this.selectComponent('#danmu').stopInterval();  
+      }
    },
    
    /**
     * 生命周期函数--监听页面卸载
     */
    onUnload: function () {
-	   this.danmu.stopInterval();
+      if (this.data.listFlag !== 0) {
+         this.selectComponent('#danmu').stopInterval();  
+      }
    },
    
    /**
