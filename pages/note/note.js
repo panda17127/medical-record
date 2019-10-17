@@ -9,7 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sub_cate_id: 1
+    cateName: '请选择',
+    subName: '请选择',
+    sub_cate_id: 1,
+    mean_cate_id: 1
   },
 
   /**
@@ -24,7 +27,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.toast = this.selectComponent('#toast');
   },
 
   /**
@@ -35,7 +38,7 @@ Page({
   },
 
   /**
-   * 请求学科分类
+   * 请求科室分类
    */
   getSubCateList: function () {
     let sub_cate_id = this.data.sub_cate_id;
@@ -47,9 +50,111 @@ Page({
       }
     }).then(res => {
       console.log(res);
+      this.setData({
+        subCateList: res
+      })
     }).catch(res => {
       console.log(res);
     })
+  },
+
+  /**
+   * 选择科室
+   */
+  handleChangeCate: function (e) {
+    let idx = e.detail.value;
+    let subCateList = this.data.subCateList;
+    let cateName = subCateList[idx].sub_cate_name;
+    let sub_cate_id = subCateList[idx].sub_cate_id;
+    // 科室名称
+    this.setData({
+      cateName
+    })
+    // 学科列表
+    requestHttps({
+      url: '/getSubjectList',
+      method: 'post',
+      data: {
+        sub_cate_id
+      }
+    }).then(res => {
+      console.log(res);
+      this.setData({
+        subjectList: res
+      })
+    }).catch(res => {
+      console.log(res);
+    })
+  },
+
+  /**
+   * 选择学科
+   */
+  handleChangeSub: function (e) {
+    let idx = e.detail.value;
+    let subjectList = this.data.subjectList;
+    let subName = subjectList[idx].subject_name;
+    this.setData({
+      subName
+    })
+  },
+
+  /**
+   * 提交笔记
+   */
+  handleAddNote: function (e) {
+    console.log(e);
+    let cateIdx = e.detail.value.cateIdx;
+    let subIdx = e.detail.value.subIdx;
+    let notes = e.detail.value.notes;
+    let user = wx.getStorageSync('user');
+    let union_id = user.union_id;
+    let mean_cate_id = this.data.mean_cate_id;
+    let subCateList = this.data.subCateList;
+    let subjectList = this.data.subjectList;
+    let sub_cate_id = subCateList[cateIdx].sub_cate_id;
+    let subject_id = subjectList[subIdx].subject_id;
+    // 凌风牌代码，毫无bug，天下无双
+    if (!cateIdx) {
+      this.toast.showToast({content: '请选择科室'});
+      return;
+    }
+    if (!subIdx) {
+      this.toast.showToast({content: '请选择学科'});
+      return;
+    }
+    if (!notes) {
+      this.toast.showToast({content: '请输入笔记'});
+      return;
+    }
+
+    // 添加笔记
+    requestHttps({
+      url: '/addNote',
+      method: 'post',
+      data: {
+        union_id,
+        mean_cate_id,
+        sub_cate_id,
+        subject_id,
+        notes
+      }
+    }).then(res => {
+      console.log(res);
+    }).catch(res => {
+      console.log(res);
+    })
+
+  },
+
+  /**
+   * 判断是否为空
+   */
+  handleIsNull: function (name, content) {
+    if (!name) {
+      this.toast.showToast({ content });
+      return;
+    }
   },
 
   /**

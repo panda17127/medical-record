@@ -4,7 +4,7 @@
     margin-bottom: 8rpx;
 }
 .picker {
-    height: 98rpx;
+    height: 118rpx;
 }
 .right-icon {
     width: 17rpx;
@@ -20,4 +20,11 @@
 .save {
     width: 147rpx;
     height: 67rpx;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
 }
+.save::after {
+    border: 0;
+ }
