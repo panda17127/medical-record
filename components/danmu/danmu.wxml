@@ -44,5 +44,4 @@
       </block>
    </view>
 </view>
-<header id = 'header' back />
-<tabbar id = 'tabBar' bindmyevent="toggleList"/>
+<tabbar id="tabBar" bindmyevent="toggleList"/>

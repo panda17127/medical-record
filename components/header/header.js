@@ -5,6 +5,10 @@ Component({
     * 组件的属性列表
     */
    properties: {
+      isShow: {
+         type: Boolean,
+         value: false
+      },
       back: {
          type: Boolean,
          value: false

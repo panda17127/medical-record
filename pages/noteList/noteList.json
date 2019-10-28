@@ -1,7 +1,7 @@
 {
    "navigationStyle": "custom",
    "usingComponents": {
-      "header": "/components/header/header",
+      "Header": "/components/Header/Header",
       "tabbar": "/components/tabbar/tabbar",
       "danmu": "/components/danmu/danmu"
    }

@@ -11,6 +11,7 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -18,11 +19,10 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"uglifyFileName": true
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
+	"libVersion": "2.7.0",
 	"appid": "wx626e5e84b56b346c",
 	"projectname": "Medical%20record",
 	"debugOptions": {
@@ -53,7 +53,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
@@ -63,10 +63,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "笔记列表",
 					"pathName": "pages/noteList/noteList",
-					"query": "",
+					"query": "id=1&title=临床医学",
 					"scene": null
 				},
 				{
@@ -122,6 +122,7 @@
 					"id": -1,
 					"name": "新增笔记",
 					"pathName": "pages/note/note",
+					"query": "",
 					"scene": null
 				}
 			]

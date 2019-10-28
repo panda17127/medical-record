@@ -10,6 +10,9 @@ let i = 0;
 let ids = 0;
 let cycle = null; //计时器
 
+let pages = getCurrentPages();
+let curPage = pages[pages.length - 1];
+
 // 弹幕参数
 class Doomm {
    constructor(text, top, time, icon) {  //内容，顶部距离，运行时间，颜色（参数可自定义增加）
@@ -47,7 +50,8 @@ Component({
       sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
    },
    ready: function() {
-	   this.selectComponent("#header").getHeaderWxml().then(res => {
+      console.log(curPage.selectComponent("#header"));
+	   curPage.selectComponent("#header").getHeaderWxml().then(res => {
 		   this.setData({
 			   hHeight: res.height
 		   })
@@ -67,7 +71,7 @@ Component({
        */
       showdoomm () {
          let hHeight = 0;
-         this.selectComponent("#header").getHeaderWxml().then(res => {
+         curPage.selectComponent("#header").getHeaderWxml().then(res => {
             hHeight = res.height;
             this.setData({
                hHeight

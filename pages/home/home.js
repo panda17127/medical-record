@@ -116,6 +116,7 @@ Page({
     */
    onReady: function () {
       this.toast = this.selectComponent('#toast');
+      this.header = this.selectComponent('header');
    },
    
    /**
@@ -199,8 +200,9 @@ Page({
     */
    intoNoteList: function (e) {
       let id = e.currentTarget.dataset.id;
+      let title = e.currentTarget.dataset.title;
       wx.navigateTo({
-         url: `../noteList/noteList?id=${id}`
+         url: `../noteList/noteList?id=${id}&title=${title}`
       }) 
    },
    

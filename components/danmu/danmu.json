@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-     "header": "/components/header/header",
      "tabbar": "/components/tabbar/tabbar"
   }
 }
