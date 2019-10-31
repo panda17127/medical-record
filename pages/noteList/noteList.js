@@ -1,11 +1,10 @@
 // pages/noteList/noteList.js
 let util = require("../../utils/util");
-let getWxml = util.getWxml;
+let requestHttps = util.requestHttps;
 
 let { globalData } = getApp();
 
 Page({
-
 	/**
 	 * 页面的初始数据
 	 */
@@ -16,6 +15,8 @@ Page({
 		isIpx: globalData.systemInfo.isIpx,
 		sWidth: globalData.systemInfo.screenWidth, // 屏幕宽度
 		sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
+		hHeight: 0,  // 头部高度
+		tHeight: 0,  // 底部高度
 		noteList: [
 			{
 				name: '周杰不是纠结',
@@ -89,6 +90,8 @@ Page({
 			title: options.title,
 			mean_cate_id: options.id
 		})
+		// 获取笔记列表
+		this.getNoteList();
 	},
 
 	/**
@@ -96,7 +99,20 @@ Page({
 	 */
 	onReady: function () {
 		this.header = this.selectComponent('#header');
+		this.tabbar = this.selectComponent('#tabbar');
 		this.danmu = this.selectComponent('#danmu');
+		// 头部高度
+		this.header.getHeaderWxml().then(res => {
+			this.setData({
+			   hHeight: res.height
+			})
+		 })
+		 // 底部高度
+		 this.tabbar.getTabbarWxml().then(res => {
+			this.setData({
+			   tHeight: res.height
+			})
+		 })
 	},
 
 	/**
@@ -105,6 +121,29 @@ Page({
 	onShow: function () {
 		this.selectComponent("#danmu").showdoomm();
 	},
+
+	/**
+    * 请求笔记列表
+    */
+    getNoteList: function () {
+		let union_id = wx.getStorageSync('user').union_id;
+		let page = this.data.page;
+		let mean_cate_id = this.data.mean_cate_id;
+		requestHttps({
+		url: '/getNoteList',
+		method: 'post',
+		data: {
+			union_id,
+			mean_cate_id,
+			page
+		}
+		}).then(res => {
+		console.log(res);
+		}).catch(res => {
+		console.log(res);
+		})
+	},
+
 	/**
 	 * 生命周期函数--监听页面隐藏
 	 */

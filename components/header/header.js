@@ -42,9 +42,9 @@ Component({
             }).exec()
          })
       },
-      intoFilter() {
+      intoAdd() {
          wx.navigateTo({
-           url: '/pages/noteList/filter/filter'
+           url: '/pages/noteList/note/note'
          })
       },
       back() {

@@ -3,7 +3,7 @@
    <view class="refresh-box flex-none" bindtap="toggleList">
       <image src="/assets/img/refresh.png"></image>
    </view>
-   <view class="home-box" bindtap="intoHome">
+   <view class="home-box" bindtap="{{name === 'home' ? '' : 'intoHome'}}">
       <image src="/assets/img/home.png"></image>
    </view>
    <!--<view class="form-group">-->

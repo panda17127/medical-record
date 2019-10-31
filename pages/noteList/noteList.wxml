@@ -4,6 +4,6 @@
       <image src="/assets/img/bg.png"></image>
    </view>
    <Header id='header' title="{{title}}" back add/>
-   <!-- <tabbar id='tabBar' bindmyevent="toggleList"/> -->
-   <danmu id='danmu' noteList="{{noteList}}" listFlag="{{listFlag}}"/>
+   <tabbar id='tabbar' bindmyevent="toggleList"/>
+   <danmu id='danmu' hHeight="{{hHeight}}" tHeight="{{tHeight}}" noteList="{{noteList}}" listFlag="{{listFlag}}"/>
 </view>

@@ -1,5 +1,5 @@
 // pages/note/note.js
-let util = require("../../utils/util");
+let util = require("../../../utils/util");
 let requestHttps = util.requestHttps;
 let { globalData } = getApp();
 
@@ -42,10 +42,12 @@ Page({
    */
   getSubCateList: function () {
     let sub_cate_id = this.data.sub_cate_id;
+    let mean_cate_id = this.data.mean_cate_id;
     requestHttps({
       url: '/getSubCateList',
       method: 'post',
       data: {
+        mean_cate_id,
         sub_cate_id
       }
     }).then(res => {

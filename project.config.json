@@ -119,9 +119,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 9,
 					"name": "新增笔记",
-					"pathName": "pages/note/note",
+					"pathName": "pages/noteList/note/note",
 					"query": "",
 					"scene": null
 				}

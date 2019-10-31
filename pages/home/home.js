@@ -4,7 +4,6 @@ const app = getApp();
 let util = require("../../utils/util");
 let requestHttps = util.requestHttps;
 let getWxml = util.getWxml;
-
 // pages/noteList/filter/filter.js
 Page({
 	
@@ -12,6 +11,7 @@ Page({
     * 页面的初始数据
     */
    data: {
+      page:0,
       isLogin: false, //是否登录
       listFlag: 0,  // 列表
       listFlagDefault: 0,  // 列表默认
@@ -86,18 +86,6 @@ Page({
     * 生命周期函数--监听页面加载
     */
    onLoad: function (options) {
-      // 头部高度
-      this.selectComponent("#header").getHeaderWxml().then(res => {
-         this.setData({
-            hHeight: res.height
-         })
-      })
-      // 底部高度
-      this.selectComponent("#tabbar").getTabbarWxml().then(res => {
-         this.setData({
-            tHeight: res.height
-         })
-      })
       // 登录判断
       let user = wx.getStorageSync('user');
       if (user) {
@@ -116,7 +104,20 @@ Page({
     */
    onReady: function () {
       this.toast = this.selectComponent('#toast');
-      this.header = this.selectComponent('header');
+      this.header = this.selectComponent('#header');
+      this.tabbar = this.selectComponent('#tabbar');
+      // 头部高度
+      this.header.getHeaderWxml().then(res => {
+         this.setData({
+            hHeight: res.height
+         })
+      })
+      // 底部高度
+      this.tabbar.getTabbarWxml().then(res => {
+         this.setData({
+            tHeight: res.height
+         })
+      })
    },
    
    /**
@@ -182,12 +183,13 @@ Page({
     */
    getNoteList: function () {
       let user = wx.getStorageSync('user');
+      let page = this.data.page;
       requestHttps({
          url: '/getNoteList',
          method: 'post',
          data: {
             union_id: user.union_id,
-            page: 1
+            page
          }
       }).then(res => {
          console.log(res);
