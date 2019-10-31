@@ -186,7 +186,8 @@ Page({
          url: '/getNoteList',
          method: 'post',
          data: {
-            union_id: user.union_id
+            union_id: user.union_id,
+            page: 1
          }
       }).then(res => {
          console.log(res);

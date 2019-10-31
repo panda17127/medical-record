@@ -50,17 +50,17 @@ Component({
       sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
    },
    ready: function() {
-      console.log(curPage.selectComponent("#header"));
-	   curPage.selectComponent("#header").getHeaderWxml().then(res => {
-		   this.setData({
-			   hHeight: res.height
-		   })
-	   })
-	   this.selectComponent("#tabBar").getTabbarWxml().then(res => {
-		   this.setData({
-			   tHeight: res.height
-		   })
-	   })
+      // console.log(curPage.selectComponent("#header"));
+	   // curPage.selectComponent("#header").getHeaderWxml().then(res => {
+		//    this.setData({
+		// 	   hHeight: res.height
+		//    })
+	   // })
+	   // this.selectComponent("#tabBar").getTabbarWxml().then(res => {
+		//    this.setData({
+		// 	   tHeight: res.height
+		//    })
+	   // })
    },
    /**
     * 组件的方法列表
