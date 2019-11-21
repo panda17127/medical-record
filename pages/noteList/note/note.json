@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "添加笔记",
   "usingComponents": {
     "toast": "/components/toast/toast"
   }

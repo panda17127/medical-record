@@ -144,3 +144,18 @@ image {
    height:100%;
    background-color: transparent;
 }
+
+/*单行省略*/
+.omission-only {
+   text-overflow: ellipsis;
+   overflow: hidden;
+   white-space: nowrap;
+ }
+ /*一行以上省略*/
+ .omission-2 {
+   display: -webkit-box;
+   word-break: break-all;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+   overflow: hidden;
+ }

@@ -3,6 +3,7 @@
    "usingComponents": {
       "Header": "/components/Header/Header",
       "tabbar": "/components/tabbar/tabbar",
-      "danmu": "/components/Danmu/Danmu"
+      "danmu": "/components/Danmu/Danmu",
+      "toast": "/components/toast/toast"
    }
 }

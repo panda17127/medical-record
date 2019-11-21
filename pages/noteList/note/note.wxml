@@ -35,7 +35,7 @@
             </view>
         </view>
         <view class="notes">
-            <textarea name="notes" placeholder="点击输入" placeholder-class="co939393" id="" cols="30" rows="10"></textarea>
+            <textarea name="notes" placeholder="点击输入" class="fs28" placeholder-class="fs28 co939393" id="" cols="30" rows="10"></textarea>
         </view>
         <view class="btn">
             <button class="save" form-type="submit">

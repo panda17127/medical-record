@@ -116,7 +116,6 @@ Page({
     let subjectList = this.data.subjectList;
     let sub_cate_id = subCateList[cateIdx].sub_cate_id;
     let subject_id = subjectList[subIdx].subject_id;
-    // 凌风牌代码，毫无bug，天下无双
     if (!cateIdx) {
       this.toast.showToast({content: '请选择科室'});
       return;
@@ -129,7 +128,7 @@ Page({
       this.toast.showToast({content: '请输入笔记'});
       return;
     }
-
+    wx.showLoading({title: '保存中...'});
     // 添加笔记
     requestHttps({
       url: '/addNote',
@@ -142,7 +141,11 @@ Page({
         notes
       }
     }).then(res => {
-      console.log(res);
+      let pages = getCurrentPages();
+      let prevPage = pages[pages.length - 2];
+      prevPage.toast.showToast({content: '保存成功'});
+      wx.navigateBack();
+      wx.hideLoading();
     }).catch(res => {
       console.log(res);
     })

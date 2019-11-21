@@ -1,6 +1,7 @@
 // pages/noteList/noteList.js
 let util = require("../../utils/util");
 let requestHttps = util.requestHttps;
+let formatTime = util.formatTime;
 
 let { globalData } = getApp();
 
@@ -17,68 +18,8 @@ Page({
 		sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
 		hHeight: 0,  // 头部高度
 		tHeight: 0,  // 底部高度
-		noteList: [
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/ke.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			},
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/lin.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			},
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/ling.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			},
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/ke.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			},
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/sheng.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			},
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/ke.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			},
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/ke.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			},
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/ke.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			},
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/ke.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			},
-			{
-				name: '周杰不是纠结',
-				icon: '/assets/img/ke.png',
-				sub: '妇产科',
-				time: '2019/01/09 12:30'
-			}
-		],  // 笔记列表
+		noteList: [],  // 笔记列表
+		isMore: false
 	},
 
 	/**
@@ -90,14 +31,13 @@ Page({
 			title: options.title,
 			mean_cate_id: options.id
 		})
-		// 获取笔记列表
-		this.getNoteList();
 	},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
 	onReady: function () {
+		this.toast = this.selectComponent("#toast");
 		this.header = this.selectComponent('#header');
 		this.tabbar = this.selectComponent('#tabbar');
 		this.danmu = this.selectComponent('#danmu');
@@ -120,6 +60,8 @@ Page({
 	 */
 	onShow: function () {
 		this.selectComponent("#danmu").showdoomm();
+		// 获取笔记列表
+		this.getNoteList();
 	},
 
 	/**
@@ -138,9 +80,25 @@ Page({
 			page
 		}
 		}).then(res => {
-		console.log(res);
+			res.forEach(item => {
+				item.create_time = formatTime({
+					date: parseInt(item.create_time) * 1000,
+					format: 'YYYY/MM/DD hh:mm',
+					type: '/'
+				})
+				item.icon = `/assets/img/icon${item.mean_cate_id}.png`
+			})
+			console.log(res);
+			let isMore = this.data.isMore;
+			if (res.length > 10) {
+				isMore = true
+			}
+			this.setData({
+				isMore,
+				noteList: res
+			})
 		}).catch(res => {
-		console.log(res);
+			console.log(res);
 		})
 	},
 

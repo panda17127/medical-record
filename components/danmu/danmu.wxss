@@ -32,6 +32,12 @@
 .note-item-01 .note-right>view {
   width: 100%;
 }
+.note-item-01 .note-right .note-sub {
+   width: 300rpx;
+}
+.note-item-01 .note-right .note-notes {
+   width: 500rpx;
+}
 .item-foot {
   padding: 30rpx 0;
 }

@@ -7,3 +7,4 @@
    <tabbar id='tabbar' bindmyevent="toggleList"/>
    <danmu id='danmu' hHeight="{{hHeight}}" tHeight="{{tHeight}}" noteList="{{noteList}}" listFlag="{{listFlag}}"/>
 </view>
+<toast id="toast"></toast>

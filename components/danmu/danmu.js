@@ -43,6 +43,10 @@ Component({
       },
       tHeight: {
          type: Number
+      },
+      isMore: {
+         type: Boolean,
+         value: false
       }
    },
    
@@ -71,39 +75,40 @@ Component({
          let sHeight = this.data.sHeight;
          let viewHeight = sHeight - tHeight - 120;
          let noteList = this.data.noteList;
-
-         let timer = () => {
-            let top = Math.floor(Math.random() * (viewHeight - hHeight) + hHeight);
-            let time = Math.floor(Math.random() * 5 + 5);
-            let icon = Math.floor(Math.random() * 3 + 1);
-            if (noteList[ids] == undefined) {
-               ids = 0
-               // 1.循环一次，清除计时器
-               // doommList = []
-               // clearInterval(cycle)
-               
-               // 2.无限循环弹幕
-               doommList.push(new Doomm(noteList[ids].name, top, time, icon));
-               if (doommList.length > 6) {   //删除运行过后的dom
-                  doommList.splice(0, 1)
+         if (noteList.length > 0) {
+            let timer = () => {
+               let top = Math.floor(Math.random() * (viewHeight - hHeight) + hHeight);
+               let time = Math.floor(Math.random() * 5 + 5);
+               let icon = Math.floor(Math.random() * 3 + 1);
+               if (noteList[ids] == undefined) {
+                  ids = 0
+                  // 1.循环一次，清除计时器
+                  // doommList = []
+                  // clearInterval(cycle)
+                  
+                  // 2.无限循环弹幕
+                  doommList.push(new Doomm(noteList[ids].notes, top, time, icon));
+                  if (doommList.length > 6) {   //删除运行过后的dom
+                     doommList.splice(0, 1)
+                  }
+                  this.setData({
+                     doommData: doommList
+                  })
+                  ids++
+               } else {
+                  doommList.push(new Doomm(noteList[ids].name, top, time, icon));
+                  if (doommList.length > 6) {
+                     doommList.splice(0, 1)
+                  }
+                  this.setData({
+                     doommData: doommList
+                  })
+                  ids++
                }
-               this.setData({
-                  doommData: doommList
-               })
-               ids++
-            } else {
-               doommList.push(new Doomm(noteList[ids].name, top, time, icon));
-               if (doommList.length > 6) {
-                  doommList.splice(0, 1)
-               }
-               this.setData({
-                  doommData: doommList
-               })
-               ids++
+               return timer;
             }
-            return timer;
+            cycle = setInterval(timer(), 3000);
          }
-         cycle = setInterval(timer(), 3000);
       },
 	   stopInterval () {
 		   clearInterval(cycle)

@@ -71,60 +71,29 @@ const requestHttps = (data) => {
  * @param type 连接类型
  * @returns {string}
  */
-const formatTime = (date, format, type) => {
-   const year = date.getFullYear();
-   const month = date.getMonth() + 1;
-   const day = date.getDate();
-   const hour = date.getHours();
-   const minute = date.getMinutes();
-   const second = date.getSeconds();
-   let dayTemp = [];
-   let timeTemp = [];
-   // 年月日
-   if (format.indexOf('YY') !== -1) {
-     dayTemp.push(year);
-   }
-   if (format.indexOf('MM') !== -1) {
-      dayTemp.push(month);
-   }
-   if (format.indexOf('DD') !== -1) {
-      dayTemp.push(day);
-   }
-   // 时分秒
-   if (format.indexOf('hh') !== -1) {
-      timeTemp.push(hour);
-   }
-   if (format.indexOf('mm') !== -1) {
-      timeTemp.push(minute);
-   }
-   if (format.indexOf('ss') !== -1) {
-      timeTemp.push(second);
-   }
-   if (type === '/') {
-      return dayTemp.map(formatNumber).join('/') + ' ' + timeTemp.map(formatNumber).join(':');
-   } else if (type === '-') {
-      return dayTemp.map(formatNumber).join('-') + ' ' + timeTemp.map(formatNumber).join(':');
-   } else {
-      let timeStr = "";
-      if (format.indexOf('YY') !== -1) {
-         timeStr = year + '年';
-      }
-      if (format.indexOf('MM') !== -1) {
-         timeStr += month + '月';
-      }
-      if (format.indexOf('DD') !== -1) {
-         timeStr += day + '日';
-      }
-      if (format.indexOf('hh') !== -1) {
-         timeStr += ' ' + hour + '时';
-      }
-      if (format.indexOf('mm') !== -1) {
-         timeStr += minute + '分';
-      }
-      if (format.indexOf('ss') !== -1) {
-         timeStr += second + '秒';
-      }
-      return timeStr;
+const formatTime = data => {
+   const year = new Date(data.date).getFullYear();
+   const month = new Date(data.date).getMonth() + 1;
+   const day = new Date(data.date).getDate();
+   const hour = new Date(data.date).getHours();
+   const minute = new Date(data.date).getMinutes();
+   const second = new Date(data.date).getSeconds();
+   if (data.format == 'YYYY-MM-DD') {
+      return [year, month, day].map(formatNumber).join('.');
+   } else if (data.format == 'MM-DD') {
+      return [month, day].map(formatNumber).join('-');
+   } else if (data.format == 'YYYY-MM-DD hh:mm:ss') {
+      return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':');
+   } else if (data.format == 'YYYY-MM-DD hh:mm') {
+      return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':');
+   } else if (data.format == 'YYYY/MM/DD hh:mm') {
+      return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute].map(formatNumber).join(':');
+   } else if (data.format == 'activity') {
+      return month + '月' + day + '日' + ' ' + [hour, minute].map(formatNumber).join(':');
+   } else if (data.format == 'YYYYMMDD') {
+      return [year, month, day].map(formatNumber).join('-');
+   } else if (data.format == 'hh:mm') {
+      return [hour, minute].map(formatNumber).join(':');
    }
 }
 /***

@@ -12,13 +12,13 @@
          <view class="mine-word flex flex-col flex-ac">
             <block wx:for="{{wordList}}" wx:key="{{index}}">
                <view class="mine-word-item {{ index + 1 === wordList.length ? '' : 'mine-word-item-mb'}} flex flex-ac flex-js">
-                  <view class="fs32">{{item.name}}</view>
+                  <view class="fs32">{{item.cate_name}}</view>
                   <view class="artcle-num flex flex-ac flex-je">
-                     <view class="fs32">{{item.artcleNum}}</view>
+                     <view class="fs32">{{item.total_note}}</view>
                      <view class="fs24">篇</view>
                   </view>
                   <view class="word-num flex flex-ac flex-je">
-                     <view class="fs32">{{item.wordNum}}</view>
+                     <view class="fs32">{{item.total_note_num}}</view>
                      <view class="fs24">字</view>
                   </view>
                </view>

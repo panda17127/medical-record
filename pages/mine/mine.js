@@ -61,6 +61,8 @@ Page({
 	onLoad: function (options) {
 		// 获取会员信息
 		this.getUnionInfo();
+		// 汇总数据
+		this.getUnionNote();
 	},
 
 	/**
@@ -95,6 +97,26 @@ Page({
 		})
 	},
 
+	/**
+	 * 获取汇总数据
+	 */
+	getUnionNote: function () {
+		let union_id = wx.getStorageSync('user').union_id;
+		requestHttps({
+			url: '/getUnionNote',
+			method: 'post',
+			data: {
+				union_id
+			}
+		}).then(res => {
+			console.log(res);
+			this.setData({
+				wordList: res
+			})
+		}).catch(res => {
+			console.log(res);
+		})
+	},
 
 	/***
 	 *  公告页面
