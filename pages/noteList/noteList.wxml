@@ -5,6 +5,6 @@
    </view>
    <Header id='header' title="{{title}}" back add/>
    <tabbar id='tabbar' bindmyevent="toggleList"/>
-   <danmu id='danmu' hHeight="{{hHeight}}" tHeight="{{tHeight}}" noteList="{{noteList}}" listFlag="{{listFlag}}"/>
+   <danmu id='danmu' isMore hHeight="{{hHeight}}" tHeight="{{tHeight}}" noteList="{{noteList}}" listFlag="{{listFlag}}"/>
 </view>
 <toast id="toast"></toast>

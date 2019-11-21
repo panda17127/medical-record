@@ -3,7 +3,7 @@
 const app = getApp();
 let util = require("../../utils/util");
 let requestHttps = util.requestHttps;
-let getWxml = util.getWxml;
+let formatTime = util.formatTime;
 // pages/noteList/filter/filter.js
 Page({
 	
@@ -12,74 +12,14 @@ Page({
     */
    data: {
       page:0,
+      isMore: false,
       isLogin: false, //是否登录
       listFlag: 0,  // 列表
       listFlagDefault: 0,  // 列表默认
       hHeight: 0,  // 头部高度
       tHeight: 0,  // 底部高度
       notebookList: [], // 主菜单列表
-      noteList: [
-      	{
-      		name: '周杰不是纠结',
-		      icon: '/assets/img/ke.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      },
-	      {
-		      name: '周杰不是纠结',
-		      icon: '/assets/img/lin.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      },
-	      {
-		      name: '周杰不是纠结',
-		      icon: '/assets/img/ling.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      },
-	      {
-		      name: '周杰不是纠结',
-		      icon: '/assets/img/ke.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      },
-	      {
-		      name: '周杰不是纠结',
-		      icon: '/assets/img/sheng.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      },
-	      {
-		      name: '周杰不是纠结',
-		      icon: '/assets/img/ke.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      },
-	      {
-		      name: '周杰不是纠结',
-		      icon: '/assets/img/ke.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      },
-	      {
-		      name: '周杰不是纠结',
-		      icon: '/assets/img/ke.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      },
-	      {
-		      name: '周杰不是纠结',
-		      icon: '/assets/img/ke.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      },
-	      {
-		      name: '周杰不是纠结',
-		      icon: '/assets/img/ke.png',
-		      sub: '儿科',
-		      time: '2019/01/09 12:30'
-	      }
-      ],  // 笔记列表
+      noteList: [],  // 笔记列表
    },
    
    /**
@@ -192,7 +132,23 @@ Page({
             page
          }
       }).then(res => {
-         console.log(res);
+         res.forEach(item => {
+				item.create_time = formatTime({
+					date: parseInt(item.create_time) * 1000,
+					format: 'YYYY/MM/DD hh:mm',
+					type: '/'
+				})
+				item.icon = `/assets/img/icon${item.mean_cate_id}.png`
+			})
+			console.log(res);
+			let isMore = this.data.isMore;
+			if (res.length > 10) {
+				isMore = true
+         }
+			this.setData({
+				isMore,
+				noteList: res
+			})
       }).catch(res => {
          console.log(res);
       })

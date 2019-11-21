@@ -8,7 +8,7 @@
             </view>
             <view class="note-right flex flex-col flex-ac flex-jc">
                <view class="note-right-top flex flex-ac flex-js">
-                  <view class="note-sub fs32 omission-only">{{item.notes}}</view>
+                  <view class="note-sub fs32 omission-only">{{item.subject_name}}</view>
                   <view class="note-item fs24 co939393">{{item.create_time}}</view>
                </view>
                <view class="flex flex-ac flex-js">
