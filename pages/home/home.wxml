@@ -16,8 +16,9 @@
             </view>
          </block>
       </view>
-      <danmu wx:else id='danmu' isMore hHeight="{{hHeight}}" tHeight="{{tHeight}}" noteList="{{noteList}}" listFlag="{{listFlag}}"/>
+      <danmu wx:else id='danmu' isMore="{{isMore}}" hHeight="{{hHeight}}" tHeight="{{tHeight}}" noteList="{{noteList}}" listFlag="{{listFlag}}"/>
    </view>
    <tabbar id="tabbar" name="home"></tabbar>
    <toast id="toast"></toast>
 </view>
+<toast id="toast"></toast>

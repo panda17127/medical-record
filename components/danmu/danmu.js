@@ -15,12 +15,13 @@ let curPage = pages[pages.length - 1];
 
 // 弹幕参数
 class Doomm {
-   constructor(text, top, time, icon) {  //内容，顶部距离，运行时间，颜色（参数可自定义增加）
+   constructor(text, top, time, icon, bg) {  //内容，顶部距离，运行时间，颜色（参数可自定义增加）
       this.text = text;
       this.top = top;
       this.time = time;
       this.display = true;
       this.icon = icon;
+      this.bg = bg;
       this.id = i++;
    }
 }
@@ -56,6 +57,7 @@ Component({
    data: {
       listFlag: 1,
       doommData: [],
+      colorList: ['#f0e0cf', 'transparent', '#dbe9ec', '#fff'],
       sWidth: globalData.systemInfo.screenWidth, // 屏幕宽度
       sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
    },
@@ -75,11 +77,13 @@ Component({
          let sHeight = this.data.sHeight;
          let viewHeight = sHeight - tHeight - 120;
          let noteList = this.data.noteList;
+         let colorList = this.data.colorList;
          if (noteList.length > 0) {
             let timer = () => {
                let top = Math.floor(Math.random() * (viewHeight - hHeight) + hHeight);
-               let time = Math.floor(Math.random() * 5 + 5);
-               let icon = Math.floor(Math.random() * 3 + 1);
+               let time = Math.floor(Math.random() * 5 + 7);
+               let icon = Math.floor(Math.random() * 4 + 1);
+               let bg = colorList[icon - 1];
                if (noteList[ids] == undefined) {
                   ids = 0
                   // 1.循环一次，清除计时器
@@ -87,7 +91,7 @@ Component({
                   // clearInterval(cycle)
                   
                   // 2.无限循环弹幕
-                  doommList.push(new Doomm(noteList[ids].notes, top, time, icon));
+                  doommList.push(new Doomm(noteList[ids].notes, top, time, icon, bg));
                   if (doommList.length > 6) {   //删除运行过后的dom
                      doommList.splice(0, 1)
                   }
@@ -96,7 +100,7 @@ Component({
                   })
                   ids++
                } else {
-                  doommList.push(new Doomm(noteList[ids].name, top, time, icon));
+                  doommList.push(new Doomm(noteList[ids].notes, top, time, icon, bg));
                   if (doommList.length > 6) {
                      doommList.splice(0, 1)
                   }
@@ -107,7 +111,7 @@ Component({
                }
                return timer;
             }
-            cycle = setInterval(timer(), 3000);
+            cycle = setInterval(timer(), 2000);
          }
       },
 	   stopInterval () {

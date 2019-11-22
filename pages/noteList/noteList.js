@@ -2,6 +2,7 @@
 let util = require("../../utils/util");
 let requestHttps = util.requestHttps;
 let formatTime = util.formatTime;
+let getMatchWords = util.getMatchWords;
 
 let { globalData } = getApp();
 
@@ -86,7 +87,8 @@ Page({
 					format: 'YYYY/MM/DD hh:mm',
 					type: '/'
 				})
-				item.icon = `/assets/img/icon${item.mean_cate_id}.png`
+				item.icon = `/assets/img/icon${item.mean_cate_id}.png`;
+				item.notes = getMatchWords(item.notes, 50);
 			})
 			console.log(res);
 			let isMore = this.data.isMore;

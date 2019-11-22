@@ -43,8 +43,11 @@ Component({
          })
       },
       intoAdd() {
+         let pages = getCurrentPages();
+         let curPage = pages[pages.length - 1];
+         let mean_cate_id = curPage.data.mean_cate_id;
          wx.navigateTo({
-           url: '/pages/noteList/note/note'
+           url: `/pages/noteList/note/note?mean_cate_id=${mean_cate_id}`
          })
       },
       back() {
