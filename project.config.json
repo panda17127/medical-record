@@ -122,7 +122,7 @@
 					"id": 9,
 					"name": "新增笔记",
 					"pathName": "pages/noteList/note/note",
-					"query": "",
+					"query": "mean_cate_id=2",
 					"scene": null
 				}
 			]

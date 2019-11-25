@@ -10,9 +10,9 @@ Page({
    */
   data: {
     cateName: '请选择',
-    subName: '请选择',
-    sub_cate_id: 1,
-    mean_cate_id: 1
+    subName: '请先选择科室,再选择学科',
+    mean_cate_id: 1,
+    subDisabled: true
   },
 
   /**
@@ -45,14 +45,12 @@ Page({
    * 请求科室分类
    */
   getSubCateList: function () {
-    let sub_cate_id = this.data.sub_cate_id;
     let mean_cate_id = this.data.mean_cate_id;
     requestHttps({
       url: '/getSubCateList',
       method: 'post',
       data: {
-        mean_cate_id,
-        sub_cate_id
+        mean_cate_id
       }
     }).then(res => {
       console.log(res);
@@ -69,11 +67,17 @@ Page({
    */
   handleChangeCate: function (e) {
     let idx = e.detail.value;
+    if (!idx) {
+      return;
+    }
+
     let subCateList = this.data.subCateList;
     let cateName = subCateList[idx].sub_cate_name;
     let sub_cate_id = subCateList[idx].sub_cate_id;
     // 科室名称
     this.setData({
+      subDisabled: false,
+      subName: '请选择',
       cateName
     })
     // 学科列表

@@ -19,7 +19,7 @@
         </view>
         <view class="box sub-box backfff">
         <!-- subjectList -->
-            <picker name="subIdx" bindchange="handleChangeSub" value="{{index}}" range-key="subject_name" range="{{subjectList}}">
+            <picker disabled="{{subDisabled}}" name="subIdx" bindchange="handleChangeSub" value="{{index}}" range-key="subject_name" range="{{subjectList}}">
                 <view class="picker sub-picker flex flex-ac flex-js">
                     <view class="fs32">研究学科</view>
                     <view class="flex flex-ac fs24 co939393">
