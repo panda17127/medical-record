@@ -42,6 +42,14 @@ Component({
             }).exec()
          })
       },
+      handleKeyword(e) {
+         let value = e.detail.value;
+         let myEventDetail = {
+            value
+         } // detail对象，提供给事件监听函数
+         let myEventOption = {} // 触发事件的选项
+         this.triggerEvent('confirmkeyword', myEventDetail, myEventOption)
+      },
       intoAdd() {
          let pages = getCurrentPages();
          let curPage = pages[pages.length - 1];

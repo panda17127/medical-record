@@ -21,6 +21,7 @@ Page({
       tHeight: 0,  // 底部高度
       notebookList: [], // 主菜单列表
       noteList: [],  // 笔记列表
+      keyword: ''
    },
    
    /**
@@ -125,12 +126,14 @@ Page({
    getNoteList: function () {
       let user = wx.getStorageSync('user');
       let page = this.data.page;
+      let keyword = this.data.keyword;
       requestHttps({
          url: '/getNoteList',
          method: 'post',
          data: {
             union_id: user.union_id,
-            page
+            page,
+            keyword
          }
       }).then(res => {
          res.forEach(item => {
@@ -154,6 +157,18 @@ Page({
       }).catch(res => {
          console.log(res);
       })
+   },
+
+   /**
+    * 搜索关键字
+    */
+   handleConfirmKeyword: function (e) {
+      let keyword = e.detail.value;
+      this.setData({
+         keyword,
+         listFlag: 1
+      })
+      this.getNoteList();
    },
 
    /***

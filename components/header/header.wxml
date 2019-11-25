@@ -8,7 +8,7 @@
    </view>
    <view class="header-input-box flex flex-ac flex-js">
       <view class="input-group pos-r">
-         <input class="input-control fs24"/>
+         <input placeholder="请输入关键字" placeholder-style="font-size: 24rpx;" class="input-control fs24" bindconfirm="handleKeyword"/>
          <view class="search-box">
             <image src="/assets/img/search.png"></image>
          </view>
