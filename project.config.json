@@ -22,7 +22,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.0",
+	"libVersion": "2.9.3",
 	"appid": "wx626e5e84b56b346c",
 	"projectname": "Medical%20record",
 	"debugOptions": {

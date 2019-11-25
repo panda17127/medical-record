@@ -114,10 +114,26 @@ Component({
             cycle = setInterval(timer(), 2000);
          }
       },
+
+      /**
+       * 停止
+       */
 	   stopInterval () {
 		   clearInterval(cycle)
 		   ids = 0;
 		   doommList = []
-	   }
-   }
+      },
+
+      /**
+       * 进入详情
+       */
+      handleNote: function (e) {
+         let item = e.currentTarget.dataset.item;
+         let myEventDetail = {
+            item: item
+         };
+         let myEventOption = {};
+         this.triggerEvent('intonote', myEventDetail, myEventOption)
+      }
+   },
 })

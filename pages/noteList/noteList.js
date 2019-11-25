@@ -105,6 +105,24 @@ Page({
 	},
 
 	/**
+    * 进入笔记编辑
+    */
+	handleIntoNote: function (e) {
+		let item = e.detail.item;
+		wx.navigateTo({
+		url: `./note/note`,
+		success: (res) => {
+			// 通过eventChannel向被打开页面传送数据
+			if (item) {
+				res.eventChannel.emit('sendData', { item });
+			} else {
+				res.eventChannel.emit('sendData', false);
+			}
+		}
+		})
+	},
+
+	/**
 	 * 生命周期函数--监听页面隐藏
 	 */
 	onHide: function () {

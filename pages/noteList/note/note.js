@@ -19,12 +19,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    this.setData({
-      mean_cate_id: options.mean_cate_id
-    })
-    // 学科分类
-    this.getSubCateList();
+    if (Object.keys(options).length === 0) {
+      let eventChannel = this.getOpenerEventChannel();
+      if (Object.keys(eventChannel).length > 0) {
+        eventChannel.on('sendData', (data) => {
+          this.setData({
+            mean_cate_id: data.item.mean_cate_id,
+            note: data.item
+          })
+          // 学科分类
+          this.getSubCateList();
+        })
+      }
+    } else {
+      this.setData({
+        mean_cate_id: options.mean_cate_id
+      })
+      // 学科分类
+      this.getSubCateList();
+    }
   },
 
   /**
