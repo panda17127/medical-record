@@ -124,6 +124,13 @@
 					"pathName": "pages/noteList/note/note",
 					"query": "mean_cate_id=2",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户协议",
+					"pathName": "pages/mine/agreement/agreement",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

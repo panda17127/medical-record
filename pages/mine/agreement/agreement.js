@@ -1,4 +1,8 @@
-// pages/mine/setting/setting.js
+// pages/mine/agreement/agreement.js
+let util = require("../../../utils/util");
+let requestHttps = util.requestHttps;
+
+
 Page({
 
   /**
@@ -12,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.handleGetAgreement();
   },
 
   /**
@@ -29,9 +33,18 @@ Page({
 
   },
 
-  handleToAgreement: function () {
-    wx.navigateTo({
-      url: '../agreement/agreement'
+  /**
+   * 使用协议
+   */
+  handleGetAgreement: function () {
+    requestHttps({
+      url: '/getNoticelist',
+      method: 'post'
+    }).then(res => {
+      console.log(res);
+      this.setData({
+        agreement: res.notice
+      })
     })
   },
 
