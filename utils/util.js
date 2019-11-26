@@ -60,6 +60,10 @@ const requestHttps = (data) => {
             console.log("请求接口失败");
             console.log(res); 
             reject(res);
+         },
+         complete: res => {
+            wx.hideLoading();
+            wx.hideNavigationBarLoading();
          }
       })
    })

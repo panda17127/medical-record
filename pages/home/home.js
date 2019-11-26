@@ -126,14 +126,14 @@ Page({
    getNoteList: function () {
       let user = wx.getStorageSync('user');
       let page = this.data.page;
-      let keyword = this.data.keyword;
+      let keywords = this.data.keywords;
       requestHttps({
          url: '/getNoteList',
          method: 'post',
          data: {
             union_id: user.union_id,
             page,
-            keyword
+            keywords
          }
       }).then(res => {
          res.forEach(item => {
@@ -163,9 +163,10 @@ Page({
     * 搜索关键字
     */
    handleConfirmKeyword: function (e) {
-      let keyword = e.detail.value;
+      wx.showLoading({title: '加载中...'});
+      let keywords = e.detail.value;
       this.setData({
-         keyword,
+         keywords,
          listFlag: 1
       })
       this.getNoteList();

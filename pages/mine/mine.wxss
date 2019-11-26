@@ -19,6 +19,9 @@
 .mine-word-item {
   width: 100%;
 }
+.artcle-title {
+  width: 200rpx;
+}
 .artcle-num {
   width: 150rpx;
 }

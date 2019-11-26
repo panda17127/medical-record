@@ -72,12 +72,14 @@ Page({
 		let union_id = wx.getStorageSync('user').union_id;
 		let page = this.data.page;
 		let mean_cate_id = this.data.mean_cate_id;
+		let keywords = this.data.keywords;
 		requestHttps({
 		url: '/getNoteList',
 		method: 'post',
 		data: {
 			union_id,
 			mean_cate_id,
+			keywords,
 			page
 		}
 		}).then(res => {
@@ -120,6 +122,19 @@ Page({
 			}
 		}
 		})
+	},
+
+	/**
+    * 搜索关键字
+    */
+   handleConfirmKeyword: function (e) {
+	   	wx.showLoading({title: '加载中...'});
+		let keywords = e.detail.value;
+		this.setData({
+			keywords,
+			listFlag: 1
+		})
+		this.getNoteList();
 	},
 
 	/**
