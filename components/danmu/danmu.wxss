@@ -1,7 +1,10 @@
 /* components/danmu.wxss */
 @import "/app.wxss";
+.danmu {
+   height: 100%;
+}
 .note-list{
-   height: 80%;
+   height: 78%;
    width: 100%;
    overflow: hidden;
 }

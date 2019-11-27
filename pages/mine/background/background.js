@@ -1,37 +1,30 @@
 // pages/mine/background/background.js
+
+let app = getApp();
+let imageUrl = app.globalData.imageUrl;
+
 Page({
 	
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		bgList: [
-			{
-				selected: true
-			},
-			{
-				selected: false
-			},
-			{
-				selected: false
-			},
-			{
-				selected: false
-			},
-			{
-				selected: false
-			},
-			{
-				selected: false
-			}
-		]
+		imageUrl,
+		bgList: []
 	},
 	
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-	
+		try {
+			let bgList = wx.getStorageSync('bgList');
+			this.setData({
+				bgList
+			})
+		} catch (e) {
+			console.log(e);
+		}
 	},
 	
 	/**
@@ -46,6 +39,25 @@ Page({
 	 */
 	onShow: function () {
 	
+	},
+
+	/**
+	 * 选择背景
+	 */
+	handleSelected: function (e) {
+		let idx = e.currentTarget.dataset.idx;
+		let bgList = this.data.bgList;
+		bgList.forEach((item, index) => {
+			if (index === idx) {
+				item.selected = true;
+			} else {
+				item.selected = false;
+			}
+		})
+		this.setData({
+			bgList
+		})
+		wx.setStorageSync('bgList', bgList);
 	},
 	
 	/**

@@ -62,7 +62,14 @@ Component({
       sHeight: globalData.systemInfo.screenHeight, // 屏幕高度
    },
    ready: function() {
-      
+      let bgList = wx.getStorageSync('bgList');
+      bgList.forEach(item => {
+         if (item.selected) {
+            this.setData({
+               bgUrl: item.pic
+            })
+         }
+      })
    },
    /**
     * 组件的方法列表

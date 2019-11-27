@@ -159,3 +159,9 @@ image {
    -webkit-line-clamp: 2;
    overflow: hidden;
  }
+ /* 图片自适应 */
+ .bk-style{
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+ }

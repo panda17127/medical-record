@@ -6,7 +6,7 @@
       <image src="/assets/img/bg.png"></image>
    </view>
    <Header id="header" bindconfirmkeyword="handleConfirmKeyword"/>
-   <view>
+   <view class="danmu">
       <view wx:if="{{listFlag === 0}}" class="notebook-list" style="padding-top: {{hHeight}}px;padding-bottom: {{tHeight}}px;">
          <block wx:for="{{notebookList}}" wx:key="index">
             <view class="notebook-item flex flex-ac flex-jc" bindtap="intoNoteList" data-id="{{item.mean_cate_id}}"  data-title="{{item.cate_name}}">

@@ -66,7 +66,7 @@
 					"id": 1,
 					"name": "笔记列表",
 					"pathName": "pages/noteList/noteList",
-					"query": "id=1&title=临床医学",
+					"query": "id=3&title=临床医学",
 					"scene": null
 				},
 				{

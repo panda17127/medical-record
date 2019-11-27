@@ -3,9 +3,9 @@
    <view class="bg backf9f5eb">
       <view class="bg-list flex flex-wrap">
          <block wx:for="{{bgList}}" wx:key="{{index}}">
-            <view class="bg-item {{index % 3 === 2 ? '' : 'bg-item-mr'}}">
+            <view class="bg-item {{index % 3 === 2 ? '' : 'bg-item-mr'}}" bindtap="handleSelected" data-idx="{{index}}">
                <view class="bg-img">
-                  <image src="/assets/img/mine/bg/bg_0{{index + 1}}.png"></image>
+                  <image mode="aspectFill" src="{{item.pic}}"></image>
                </view>
                <view class="selected-icon" wx:if="{{item.selected}}">
                   <image src="/assets/img/mine/ok_bg.png"></image>
