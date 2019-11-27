@@ -31,7 +31,7 @@
          <view bindtap="handleNote" data-item="{{item}}" wx:if="{{item.display}}" class="note-item-02" style="animation: first {{item.time}}s linear forwards;top:{{item.top}}px;">
             <view class="flex flex-ac pos-r">
                <view class="note-icon">
-                  <image src="{{'/assets/img/note/note_icon1'+ item.icon + '.png'}}"></image>
+                  <image src="{{'/assets/img/note/note_icon'+ item.num + item.icon + '.png'}}"></image>
                </view>
                <view class="note-text-box flex flex-ac">
                   <view class="note-text" style="background-color: {{item.bg}}">{{item.text}}</view>

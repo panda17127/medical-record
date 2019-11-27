@@ -15,13 +15,14 @@ let curPage = pages[pages.length - 1];
 
 // 弹幕参数
 class Doomm {
-   constructor(text, top, time, icon, bg) {  //内容，顶部距离，运行时间，颜色（参数可自定义增加）
+   constructor(text, top, time, icon, bg, num) {  //内容，顶部距离，运行时间，颜色（参数可自定义增加）
       this.text = text;
       this.top = top;
       this.time = time;
       this.display = true;
       this.icon = icon;
       this.bg = bg;
+      this.num = num
       this.id = i++;
    }
 }
@@ -98,7 +99,7 @@ Component({
                   // clearInterval(cycle)
                   
                   // 2.无限循环弹幕
-                  doommList.push(new Doomm(noteList[ids].notes, top, time, icon, bg));
+                  doommList.push(new Doomm(noteList[ids].notes, top, time, icon, bg, noteList[ids].mean_cate_id));
                   if (doommList.length > 6) {   //删除运行过后的dom
                      doommList.splice(0, 1)
                   }
@@ -107,7 +108,7 @@ Component({
                   })
                   ids++
                } else {
-                  doommList.push(new Doomm(noteList[ids].notes, top, time, icon, bg));
+                  doommList.push(new Doomm(noteList[ids].notes, top, time, icon, bg, noteList[ids].mean_cate_id));
                   if (doommList.length > 6) {
                      doommList.splice(0, 1)
                   }
