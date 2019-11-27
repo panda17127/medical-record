@@ -62,6 +62,7 @@ const requestHttps = (data) => {
             reject(res);
          },
          complete: res => {
+            wx.stopPullDownRefresh();
             wx.hideLoading();
             wx.hideNavigationBarLoading();
          }

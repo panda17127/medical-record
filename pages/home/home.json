@@ -1,5 +1,7 @@
 {
    "navigationStyle": "custom",
+   "enablePullDownRefresh": true,
+   "onReachBottomDistance": 0,
    "usingComponents": {
      "Header": "/components/Header/Header",
      "tabbar": "/components/tabbar/tabbar",

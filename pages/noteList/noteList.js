@@ -5,7 +5,7 @@ let formatTime = util.formatTime;
 let getMatchWords = util.getMatchWords;
 
 let { globalData } = getApp();
-
+let pagesize = 12;
 Page({
 	/**
 	 * 页面的初始数据
@@ -20,7 +20,8 @@ Page({
 		hHeight: 0,  // 头部高度
 		tHeight: 0,  // 底部高度
 		noteList: [],  // 笔记列表
-		isMore: false
+		isMore: false,
+		page: 0
 	},
 
 	/**
@@ -80,7 +81,8 @@ Page({
 			union_id,
 			mean_cate_id,
 			keywords,
-			page
+			page,
+			pagesize
 		}
 		}).then(res => {
 			res.forEach(item => {
@@ -92,14 +94,20 @@ Page({
 				item.icon = `/assets/img/icon${item.mean_cate_id}.png`;
 				item.notes = getMatchWords(item.notes, 50);
 			})
-			console.log(res);
 			let isMore = this.data.isMore;
-			if (res.length > 10) {
-				isMore = true
+			let noteList = this.data.noteList;
+			let page = this.data.page;
+			if (page === 1) {
+				noteList = res
+			} else {
+				if (res.length === 0) {
+				isMore = true;
+				}
+				noteList = noteList.concat(res);
 			}
 			this.setData({
 				isMore,
-				noteList: res
+				noteList
 			})
 		}).catch(res => {
 			console.log(res);
@@ -132,7 +140,8 @@ Page({
 		let keywords = e.detail.value;
 		this.setData({
 			keywords,
-			listFlag: 1
+			listFlag: 1,
+			page: 1
 		})
 		this.getNoteList();
 	},
@@ -155,14 +164,30 @@ Page({
 	 * 页面相关事件处理函数--监听用户下拉动作
 	 */
 	onPullDownRefresh: function () {
-
+		let title = this.data.title;
+		let mean_cate_id = this.data.mean_cate_id;
+		this.setData({
+			page: 1,
+			title,
+			mean_cate_id
+		})
+		this.danmu.stopInterval();
+		this.getNoteList();
 	},
 
 	/**
 	 * 页面上拉触底事件的处理函数
 	 */
 	onReachBottom: function () {
-
+		let page = this.data.page;
+		let listFlag = this.data.listFlag;
+		if (listFlag === 1) {
+		   this.setData({
+			  isMore: false,
+			  page: ++page
+		   })
+		   this.getNoteList();
+		}
 	},
 
 	/**

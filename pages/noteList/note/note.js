@@ -17,7 +17,8 @@ Page({
       sub_cate_id: '',
       notes: ''
     },
-    subDisabled: true
+    subDisabled: true,
+    isAdd: true
   },
 
   /**
@@ -31,7 +32,8 @@ Page({
         eventChannel.on('sendData', (data) => {
           this.setData({
             beforeNotes: data.item.notes,
-            note: data.item
+            note: data.item,
+            isAdd: false
           })
           // 学科分类
           this.getSubCateList();
@@ -156,10 +158,9 @@ Page({
       return;
     }
     if (beforeNotes === notes) {
-      this.toast.showToast({content: '笔记已存在'});
+      this.toast.showToast({content: '请修改后，再保存'});
       return;
     }
-    debugger;
 
     let user = wx.getStorageSync('user');
     let union_id = user.union_id;
@@ -178,20 +179,40 @@ Page({
     noteObj.union_id = union_id;
     noteObj.notes = notes;
     wx.showLoading({title: '保存中...'});
-    // 添加笔记
-    // requestHttps({
-    //   url: '/addNote',
-    //   method: 'post',
-    //   data: { ...noteObj }
-    // }).then(res => {
-    //   let pages = getCurrentPages();
-    //   let prevPage = pages[pages.length - 2];
-    //   prevPage.toast.showToast({content: '保存成功'});
-    //   wx.navigateBack();
-    //   wx.hideLoading();
-    // }).catch(res => {
-    //   console.log(res);
-    // })
+
+    if (this.data.isAdd) {
+      // 添加笔记
+      requestHttps({
+        url: '/addNote',
+        method: 'post',
+        data: { ...noteObj }
+      }).then(res => {
+        let pages = getCurrentPages();
+        let prevPage = pages[pages.length - 2];
+        prevPage.toast.showToast({content: '保存成功'});
+        wx.navigateBack();
+        wx.hideLoading();
+      }).catch(res => {
+        console.log(res);
+      })
+    } else {
+      noteObj.note_id = note.note_id;
+      // 编辑笔记
+      requestHttps({
+        url: '/editNote',
+        method: 'post',
+        data: { ...noteObj }
+      }).then(res => {
+        let pages = getCurrentPages();
+        let prevPage = pages[pages.length - 2];
+        prevPage.toast.showToast({content: '保存成功'});
+        wx.navigateBack();
+        wx.hideLoading();
+      }).catch(res => {
+        console.log(res);
+      })
+    }
+    
   },
 
   /**
