@@ -7,16 +7,16 @@
             <image src="/assets/img/mine/ok.png"></image>
          </view>
       </view>
-      <view class="language-item backfff flex flex-ac flex-js">
+      <!-- <view class="language-item backfff flex flex-ac flex-js">
          <view class="fs30">English</view>
          <view class="ok-icon">
             <image src="/assets/img/mine/ok.png"></image>
          </view>
-      </view>
+      </view> -->
    </view>
-   <view class="btn">
+   <!-- <view class="btn">
       <view class="save">
          <image src="/assets/img/save.png"></image>
       </view>
-   </view>
+   </view> -->
 </view>

@@ -33,7 +33,7 @@ Page({
 		],
 		mineList: [
 			{
-				name: '通告',
+				name: '序言',
 				fn: 'handleToNotice'
 			},
 			{
