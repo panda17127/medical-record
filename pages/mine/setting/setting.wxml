@@ -1,7 +1,7 @@
 <!--pages/mine/setting/setting.wxml-->
 <view class="container">
    <view class="setting backf9f5eb">
-      <view class="setting-item backfff flex flex-ac flex-js">
+      <view bindtap="handleToAgreement" class="setting-item backfff flex flex-ac flex-js">
          <view class="fs32">使用许可协议</view>
          <view class="right-icon">
             <image src="/assets/img/right.png"></image>

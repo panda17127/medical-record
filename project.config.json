@@ -22,7 +22,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.0",
+	"libVersion": "2.9.3",
 	"appid": "wx626e5e84b56b346c",
 	"projectname": "Medical%20record",
 	"debugOptions": {
@@ -66,7 +66,7 @@
 					"id": 1,
 					"name": "笔记列表",
 					"pathName": "pages/noteList/noteList",
-					"query": "id=1&title=临床医学",
+					"query": "id=3&title=临床医学",
 					"scene": null
 				},
 				{
@@ -122,6 +122,13 @@
 					"id": 9,
 					"name": "新增笔记",
 					"pathName": "pages/noteList/note/note",
+					"query": "mean_cate_id=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户协议",
+					"pathName": "pages/mine/agreement/agreement",
 					"query": "",
 					"scene": null
 				}

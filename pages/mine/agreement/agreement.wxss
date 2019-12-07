@@ -1,0 +1,4 @@
+/* pages/mine/agreement/agreement.wxss */
+.main {
+    margin: 40rpx 30rpx;
+}

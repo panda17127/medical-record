@@ -4,14 +4,17 @@ const app = getApp();
 let util = require("../../utils/util");
 let requestHttps = util.requestHttps;
 let formatTime = util.formatTime;
+let getMatchWords = util.getMatchWords;
 // pages/noteList/filter/filter.js
+
+let pagesize = 20;
 Page({
 	
    /**
     * 页面的初始数据
     */
    data: {
-      page:0,
+      page:1,
       isMore: false,
       isLogin: false, //是否登录
       listFlag: 0,  // 列表
@@ -20,6 +23,7 @@ Page({
       tHeight: 0,  // 底部高度
       notebookList: [], // 主菜单列表
       noteList: [],  // 笔记列表
+      keyword: ''
    },
    
    /**
@@ -124,12 +128,15 @@ Page({
    getNoteList: function () {
       let user = wx.getStorageSync('user');
       let page = this.data.page;
+      let keywords = this.data.keywords;
       requestHttps({
          url: '/getNoteList',
          method: 'post',
          data: {
             union_id: user.union_id,
-            page
+            page,
+            pagesize,
+            keywords
          }
       }).then(res => {
          res.forEach(item => {
@@ -138,20 +145,42 @@ Page({
 					format: 'YYYY/MM/DD hh:mm',
 					type: '/'
 				})
-				item.icon = `/assets/img/icon${item.mean_cate_id}.png`
+            item.icon = `/assets/img/icon${item.mean_cate_id}.png`;
+            item.notes = getMatchWords(item.notes, 50);
 			})
-			console.log(res);
-			let isMore = this.data.isMore;
-			if (res.length > 10) {
-				isMore = true
+
+         let isMore = this.data.isMore;
+         let noteList = this.data.noteList;
+         let page = this.data.page;
+         if (page === 1) {
+            noteList = res
+         } else {
+            if (res.length === 0) {
+               isMore = true;
+            }
+            noteList = noteList.concat(res);
          }
 			this.setData({
 				isMore,
-				noteList: res
+				noteList
 			})
       }).catch(res => {
          console.log(res);
       })
+   },
+
+   /**
+    * 搜索关键字
+    */
+   handleConfirmKeyword: function (e) {
+      wx.showLoading({title: '加载中...'});
+      let keywords = e.detail.value;
+      this.setData({
+         keywords,
+         listFlag: 1,
+         page: 1
+      })
+      this.getNoteList();
    },
 
    /***
@@ -165,6 +194,24 @@ Page({
       }) 
    },
    
+   /**
+    * 进入笔记编辑
+    */
+   handleIntoNote: function (e) {
+      let item = e.detail.item;
+      wx.navigateTo({
+         url: `../noteList/note/note`,
+         success: (res) => {
+            // 通过eventChannel向被打开页面传送数据
+            if (item) {
+               res.eventChannel.emit('sendData', { item });
+            } else {
+               res.eventChannel.emit('sendData', false);
+            }
+         }
+      })
+   },
+
    /**
     * 生命周期函数--监听页面隐藏
     */
@@ -187,14 +234,30 @@ Page({
     * 页面相关事件处理函数--监听用户下拉动作
     */
    onPullDownRefresh: function () {
-   
+      let listFlag = this.data.listFlag;
+      if (listFlag === 1) {
+         this.setData({
+            page: 1
+         })
+         this.getNoteList();
+      } else {
+         wx.stopPullDownRefresh();
+      }
    },
    
    /**
     * 页面上拉触底事件的处理函数
     */
    onReachBottom: function () {
-   
+      let page = this.data.page;
+      let listFlag = this.data.listFlag;
+      if (listFlag === 1) {
+         this.setData({
+            isMore: false,
+            page: ++page
+         })
+         this.getNoteList();
+      }
    },
    
    /**

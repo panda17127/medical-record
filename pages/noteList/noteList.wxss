@@ -1,2 +1,4 @@
 /* pages/noteList/noteList.wxss */
-
+page, .container, .danmu {
+    height: 100%;
+}

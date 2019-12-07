@@ -2,9 +2,10 @@
 let util = require("../../utils/util");
 let requestHttps = util.requestHttps;
 let formatTime = util.formatTime;
+let getMatchWords = util.getMatchWords;
 
 let { globalData } = getApp();
-
+let pagesize = 12;
 Page({
 	/**
 	 * 页面的初始数据
@@ -19,7 +20,8 @@ Page({
 		hHeight: 0,  // 头部高度
 		tHeight: 0,  // 底部高度
 		noteList: [],  // 笔记列表
-		isMore: false
+		isMore: false,
+		page: 0
 	},
 
 	/**
@@ -71,13 +73,16 @@ Page({
 		let union_id = wx.getStorageSync('user').union_id;
 		let page = this.data.page;
 		let mean_cate_id = this.data.mean_cate_id;
+		let keywords = this.data.keywords;
 		requestHttps({
 		url: '/getNoteList',
 		method: 'post',
 		data: {
 			union_id,
 			mean_cate_id,
-			page
+			keywords,
+			page,
+			pagesize
 		}
 		}).then(res => {
 			res.forEach(item => {
@@ -86,20 +91,59 @@ Page({
 					format: 'YYYY/MM/DD hh:mm',
 					type: '/'
 				})
-				item.icon = `/assets/img/icon${item.mean_cate_id}.png`
+				item.icon = `/assets/img/icon${item.mean_cate_id}.png`;
+				item.notes = getMatchWords(item.notes, 50);
 			})
-			console.log(res);
 			let isMore = this.data.isMore;
-			if (res.length > 10) {
-				isMore = true
+			let noteList = this.data.noteList;
+			let page = this.data.page;
+			if (page === 1) {
+				noteList = res
+			} else {
+				if (res.length === 0) {
+				isMore = true;
+				}
+				noteList = noteList.concat(res);
 			}
 			this.setData({
 				isMore,
-				noteList: res
+				noteList
 			})
 		}).catch(res => {
 			console.log(res);
 		})
+	},
+
+	/**
+    * 进入笔记编辑
+    */
+	handleIntoNote: function (e) {
+		let item = e.detail.item;
+		wx.navigateTo({
+		url: `./note/note`,
+		success: (res) => {
+			// 通过eventChannel向被打开页面传送数据
+			if (item) {
+				res.eventChannel.emit('sendData', { item });
+			} else {
+				res.eventChannel.emit('sendData', false);
+			}
+		}
+		})
+	},
+
+	/**
+    * 搜索关键字
+    */
+   handleConfirmKeyword: function (e) {
+	   	wx.showLoading({title: '加载中...'});
+		let keywords = e.detail.value;
+		this.setData({
+			keywords,
+			listFlag: 1,
+			page: 1
+		})
+		this.getNoteList();
 	},
 
 	/**
@@ -120,14 +164,30 @@ Page({
 	 * 页面相关事件处理函数--监听用户下拉动作
 	 */
 	onPullDownRefresh: function () {
-
+		let title = this.data.title;
+		let mean_cate_id = this.data.mean_cate_id;
+		this.setData({
+			page: 1,
+			title,
+			mean_cate_id
+		})
+		this.danmu.stopInterval();
+		this.getNoteList();
 	},
 
 	/**
 	 * 页面上拉触底事件的处理函数
 	 */
 	onReachBottom: function () {
-
+		let page = this.data.page;
+		let listFlag = this.data.listFlag;
+		if (listFlag === 1) {
+		   this.setData({
+			  isMore: false,
+			  page: ++page
+		   })
+		   this.getNoteList();
+		}
 	},
 
 	/**

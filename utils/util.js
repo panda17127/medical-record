@@ -54,9 +54,17 @@ const requestHttps = (data) => {
             }
          },
          fail: res => {
+            let pages = getCurrentPages();
+            let curPage = pages[pages.length - 1];
+            curPage.toast.showToast({content: '网络繁忙，请稍后重试'});
             console.log("请求接口失败");
             console.log(res); 
             reject(res);
+         },
+         complete: res => {
+            wx.stopPullDownRefresh();
+            wx.hideLoading();
+            wx.hideNavigationBarLoading();
          }
       })
    })
@@ -148,10 +156,36 @@ const getWxml = (name) => {
    })
 }
 
+/**
+ * 截取字符串
+ * @param {字符串} str 
+ * @param {长度} len 
+ */
+const getMatchWords = (str, len) => {
+   let regexp = /[^\x00-\xff]/g;// 正在表达式匹配中文
+   if (!str) {
+      return;
+   }
+   // 当字符串字节长度小于指定的字节长度时
+   if (str.replace(regexp, "aa").length <= len) {
+      return str;
+   }
+   // 假设指定长度内都是中文
+   var m = Math.floor(len / 2);
+   for (var i = m, j = str.length; i < j; i++) {
+      // 当截取字符串字节长度满足指定的字节长度
+      if (str.substring(0, i).replace(regexp, "aa").length >= len) {
+         return str.substring(0, i) + "...";
+      }
+   }
+   return str;
+}
+
 module.exports = {
    checkNetConnect,
    requestHttps,
    formatTime,
    throttle,
-   getWxml
+   getWxml,
+   getMatchWords
 }

@@ -1,7 +1,10 @@
 /* components/danmu.wxss */
 @import "/app.wxss";
+.danmu {
+   height: 100%;
+}
 .note-list{
-   height: 80%;
+   height: 78%;
    width: 100%;
    overflow: hidden;
 }
@@ -58,18 +61,29 @@
    z-index: 1;
 }
 .note-item-02 .note-bg {
-   width: 471rpx;
-   height: 67rpx;
-   margin-left: -76rpx;
+   position: absolute;
+   right: 20rpx;
+   z-index: 99;
+   width: 59rpx;
+   height: 59rpx;
+   font-size: 0;
 }
 .note-item-02 .note-text {
-   position: absolute;
-   top: 10rpx;
+   min-width: 300rpx;
+   height: 60rpx;
+   line-height: 60rpx;
+   background-color: #fff;
    color: #666;
    font-size: 30rpx;
+   padding: 0 80rpx;
+   border-top: 1rpx dashed #282828;
+   border-right: 1rpx dashed #282828;
+   border-bottom: 1rpx dashed #282828;
+   border-radius: 60px;
+   margin-left: -76rpx;
 }
 
 @keyframes first{
    from{left: 100%; }
-   to{left: -100%;}
+   to{left: -150%;}
 }

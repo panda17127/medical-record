@@ -42,9 +42,20 @@ Component({
             }).exec()
          })
       },
+      handleKeyword(e) {
+         let value = e.detail.value;
+         let myEventDetail = {
+            value
+         } // detail对象，提供给事件监听函数
+         let myEventOption = {} // 触发事件的选项
+         this.triggerEvent('confirmkeyword', myEventDetail, myEventOption)
+      },
       intoAdd() {
+         let pages = getCurrentPages();
+         let curPage = pages[pages.length - 1];
+         let mean_cate_id = curPage.data.mean_cate_id;
          wx.navigateTo({
-           url: '/pages/noteList/note/note'
+           url: `/pages/noteList/note/note?mean_cate_id=${mean_cate_id}`
          })
       },
       back() {

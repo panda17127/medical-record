@@ -2,11 +2,11 @@
  <view class="container">
     <form bindsubmit="handleAddNote">
         <view class="box cate-box backfff">
-            <picker name="cateIdx" bindchange="handleChangeCate" value="{{index}}" range-key="sub_cate_name" range="{{subCateList}}">
+            <picker bindchange="handleChangeCate" value="{{index}}" range-key="sub_cate_name" range="{{subCateList}}">
                 <view class="picker cate-picker flex flex-ac flex-js">
                     <view class="fs32">所在科室</view>
                     <view class="flex flex-ac fs24 co939393">
-                        <view>{{cateName}}</view>
+                        <view>{{note.sub_cate_name}}</view>
                         <view class="right-icon">
                             <image src="/assets/img/right.png" />
                         </view>
@@ -14,16 +14,15 @@
                 </view>
             </picker>
             <view class="input-control">
-                <input class="fs28" type="text" placeholder="若未找到对应科室，请点击自行输入" placeholder-class="fs24 co939393" />
+                <input name="sub_cate_name" class="fs28" type="text" placeholder="若未找到对应科室，请点击自行输入" placeholder-class="fs24 co939393" />
             </view>
         </view>
         <view class="box sub-box backfff">
-        <!-- subjectList -->
-            <picker name="subIdx" bindchange="handleChangeSub" value="{{index}}" range-key="subject_name" range="{{subjectList}}">
+            <picker disabled="{{subDisabled}}" bindchange="handleChangeSub" value="{{index}}" range-key="subject_name" range="{{subjectList}}">
                 <view class="picker sub-picker flex flex-ac flex-js">
                     <view class="fs32">研究学科</view>
                     <view class="flex flex-ac fs24 co939393">
-                        <view>{{subName}}</view>
+                        <view>{{note.subject_name}}</view>
                         <view class="right-icon">
                             <image src="/assets/img/right.png" />
                         </view>
@@ -31,11 +30,11 @@
                 </view>
             </picker>
             <view class="input-control">
-                <input class="fs28" type="text" placeholder="若未找到对应科室，请点击自行输入" placeholder-class="fs24 co939393" />
+                <input name="subject_name" class="fs28" type="text" placeholder="若未找到对应科室，请点击自行输入" placeholder-class="fs24 co939393" />
             </view>
         </view>
         <view class="notes">
-            <textarea name="notes" placeholder="点击输入" class="fs28" placeholder-class="fs28 co939393" id="" cols="30" rows="10"></textarea>
+            <textarea name="notes" value="{{note.notes}}" placeholder="点击输入" class="fs28" placeholder-class="fs28 co939393" id="" cols="30" rows="10"></textarea>
         </view>
         <view class="btn">
             <button class="save" form-type="submit">

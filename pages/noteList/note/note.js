@@ -9,18 +9,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cateName: '请选择',
-    subName: '请选择',
-    sub_cate_id: 1,
-    mean_cate_id: 1
+    beforeNotes: '',  // 原来的笔记
+    note: {
+      sub_cate_name: '请选择',
+      subject_name: '请先选择科室,再选择学科',
+      mean_cate_id: 1,
+      sub_cate_id: '',
+      notes: ''
+    },
+    subDisabled: true,
+    isAdd: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 学科分类
-    this.getSubCateList();
+    let note = this.data.note;
+    if (Object.keys(options).length === 0) {
+      let eventChannel = this.getOpenerEventChannel();
+      if (Object.keys(eventChannel).length > 0) {
+        eventChannel.on('sendData', (data) => {
+          this.setData({
+            beforeNotes: data.item.notes,
+            note: data.item,
+            isAdd: false
+          })
+          // 学科分类
+          this.getSubCateList();
+        })
+      }
+    } else {
+      note.mean_cate_id = options.mean_cate_id;
+      this.setData({
+        note
+      })
+      // 学科分类
+      this.getSubCateList();
+    }
   },
 
   /**
@@ -41,17 +67,16 @@ Page({
    * 请求科室分类
    */
   getSubCateList: function () {
-    let sub_cate_id = this.data.sub_cate_id;
-    let mean_cate_id = this.data.mean_cate_id;
+    let mean_cate_id = this.data.note.mean_cate_id;
+    let union_id = wx.getStorageSync('user').union_id;
     requestHttps({
       url: '/getSubCateList',
       method: 'post',
       data: {
-        mean_cate_id,
-        sub_cate_id
+        union_id,
+        mean_cate_id
       }
     }).then(res => {
-      console.log(res);
       this.setData({
         subCateList: res
       })
@@ -65,22 +90,29 @@ Page({
    */
   handleChangeCate: function (e) {
     let idx = e.detail.value;
+    if (!idx) {
+      return;
+    }
+
+    let union_id = wx.getStorageSync('user').union_id;
+    let note = this.data.note;
     let subCateList = this.data.subCateList;
-    let cateName = subCateList[idx].sub_cate_name;
-    let sub_cate_id = subCateList[idx].sub_cate_id;
+    note.sub_cate_name = subCateList[idx].sub_cate_name;
+    note.sub_cate_id = subCateList[idx].sub_cate_id;
     // 科室名称
     this.setData({
-      cateName
+      subDisabled: false,
+      note
     })
     // 学科列表
     requestHttps({
       url: '/getSubjectList',
       method: 'post',
       data: {
-        sub_cate_id
+        union_id,
+        sub_cate_id: note.sub_cate_id
       }
     }).then(res => {
-      console.log(res);
       this.setData({
         subjectList: res
       })
@@ -94,10 +126,12 @@ Page({
    */
   handleChangeSub: function (e) {
     let idx = e.detail.value;
+    let note = this.data.note;
     let subjectList = this.data.subjectList;
-    let subName = subjectList[idx].subject_name;
+    note.subject_name = subjectList[idx].subject_name;
+    note.subject_id = subjectList[idx].subject_id;
     this.setData({
-      subName
+      note
     })
   },
 
@@ -105,51 +139,80 @@ Page({
    * 提交笔记
    */
   handleAddNote: function (e) {
-    console.log(e);
-    let cateIdx = e.detail.value.cateIdx;
-    let subIdx = e.detail.value.subIdx;
+    let note = this.data.note;
+    let beforeNotes = this.data.beforeNotes;
     let notes = e.detail.value.notes;
-    let user = wx.getStorageSync('user');
-    let union_id = user.union_id;
-    let mean_cate_id = this.data.mean_cate_id;
-    let subCateList = this.data.subCateList;
-    let subjectList = this.data.subjectList;
-    let sub_cate_id = subCateList[cateIdx].sub_cate_id;
-    let subject_id = subjectList[subIdx].subject_id;
-    if (!cateIdx) {
-      this.toast.showToast({content: '请选择科室'});
+    let sub_cate_name = e.detail.value.sub_cate_name;
+    let subject_name = e.detail.value.subject_name;
+
+    if (!note.sub_cate_id && !sub_cate_name) {
+      this.toast.showToast({content: '请选择所在科室'});
       return;
     }
-    if (!subIdx) {
-      this.toast.showToast({content: '请选择学科'});
+    if (!note.subject_id && !subject_name) {
+      this.toast.showToast({content: '请选择研究学科'});
       return;
     }
     if (!notes) {
       this.toast.showToast({content: '请输入笔记'});
       return;
     }
-    wx.showLoading({title: '保存中...'});
-    // 添加笔记
-    requestHttps({
-      url: '/addNote',
-      method: 'post',
-      data: {
-        union_id,
-        mean_cate_id,
-        sub_cate_id,
-        subject_id,
-        notes
-      }
-    }).then(res => {
-      let pages = getCurrentPages();
-      let prevPage = pages[pages.length - 2];
-      prevPage.toast.showToast({content: '保存成功'});
-      wx.navigateBack();
-      wx.hideLoading();
-    }).catch(res => {
-      console.log(res);
-    })
+    if (beforeNotes === notes) {
+      this.toast.showToast({content: '请修改后，再保存'});
+      return;
+    }
 
+    let user = wx.getStorageSync('user');
+    let union_id = user.union_id;
+    let noteObj = {};
+    if (note.sub_cate_id) {
+      noteObj.sub_cate_id = note.sub_cate_id;
+    } else {
+      noteObj.sub_cate_name = sub_cate_name;
+    }
+    if (note.subject_id) {
+      noteObj.subject_id = note.subject_id;
+    } else {
+      noteObj.subject_name = subject_name;
+    }
+    noteObj.mean_cate_id = note.mean_cate_id;
+    noteObj.union_id = union_id;
+    noteObj.notes = notes;
+    wx.showLoading({title: '保存中...'});
+
+    if (this.data.isAdd) {
+      // 添加笔记
+      requestHttps({
+        url: '/addNote',
+        method: 'post',
+        data: { ...noteObj }
+      }).then(res => {
+        let pages = getCurrentPages();
+        let prevPage = pages[pages.length - 2];
+        prevPage.toast.showToast({content: '保存成功'});
+        wx.navigateBack();
+        wx.hideLoading();
+      }).catch(res => {
+        console.log(res);
+      })
+    } else {
+      noteObj.note_id = note.note_id;
+      // 编辑笔记
+      requestHttps({
+        url: '/editNote',
+        method: 'post',
+        data: { ...noteObj }
+      }).then(res => {
+        let pages = getCurrentPages();
+        let prevPage = pages[pages.length - 2];
+        prevPage.toast.showToast({content: '保存成功'});
+        wx.navigateBack();
+        wx.hideLoading();
+      }).catch(res => {
+        console.log(res);
+      })
+    }
+    
   },
 
   /**

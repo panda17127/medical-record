@@ -10,7 +10,8 @@
     "pages/mine/setting/setting",
     "pages/mine/language/language",
     "pages/mine/background/background",
-    "pages/noteList/note/note"
+    "pages/noteList/note/note",
+    "pages/mine/agreement/agreement"
   ],
   "window": {
     "backgroundTextStyle": "light",

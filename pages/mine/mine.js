@@ -9,28 +9,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		wordList: [
-			{
-				name: '临床',
-				artcleNum: 5,
-				wordNum: 5000
-			},
-			{
-				name: '临床',
-				artcleNum: 5,
-				wordNum: 500
-			},
-			{
-				name: '临床',
-				artcleNum: 5,
-				wordNum: 500000
-			},
-			{
-				name: '临床',
-				artcleNum: 5,
-				wordNum: 50
-			}
-		],
+		wordList: [],
 		mineList: [
 			{
 				name: '序言',
